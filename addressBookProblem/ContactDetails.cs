@@ -29,8 +29,8 @@ namespace addressBookProblem
 
         public string toString()
         {
-            return (" First Name : " + firstName + " Last Name : " + lastName + " Address : " + address + " City : " +city+
-                "State :" +state+ "Zip :" +zip+ "Phone No : " +phoneNumber+ "Email Id :" +emailId );
+            return (" First Name : " + firstName + " Last Name : " + lastName + " Address : " + address + " City : " + city +
+                " State : " + state + " Zip : " + zip + " Phone No : " + phoneNumber + " Email Id : " + emailId );
         }
     }
 }
