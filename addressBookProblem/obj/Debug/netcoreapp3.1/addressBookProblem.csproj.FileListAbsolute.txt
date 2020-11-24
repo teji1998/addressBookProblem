@@ -1,0 +1,13 @@
+C:\Users\PRITHVIL5\source\repos\addressBookProblem\addressBookProblem\bin\Debug\netcoreapp3.1\addressBookProblem.exe
+C:\Users\PRITHVIL5\source\repos\addressBookProblem\addressBookProblem\bin\Debug\netcoreapp3.1\addressBookProblem.deps.json
+C:\Users\PRITHVIL5\source\repos\addressBookProblem\addressBookProblem\bin\Debug\netcoreapp3.1\addressBookProblem.runtimeconfig.json
+C:\Users\PRITHVIL5\source\repos\addressBookProblem\addressBookProblem\bin\Debug\netcoreapp3.1\addressBookProblem.runtimeconfig.dev.json
+C:\Users\PRITHVIL5\source\repos\addressBookProblem\addressBookProblem\bin\Debug\netcoreapp3.1\addressBookProblem.dll
+C:\Users\PRITHVIL5\source\repos\addressBookProblem\addressBookProblem\bin\Debug\netcoreapp3.1\addressBookProblem.pdb
+C:\Users\PRITHVIL5\source\repos\addressBookProblem\addressBookProblem\obj\Debug\netcoreapp3.1\addressBookProblem.csprojAssemblyReference.cache
+C:\Users\PRITHVIL5\source\repos\addressBookProblem\addressBookProblem\obj\Debug\netcoreapp3.1\addressBookProblem.AssemblyInfoInputs.cache
+C:\Users\PRITHVIL5\source\repos\addressBookProblem\addressBookProblem\obj\Debug\netcoreapp3.1\addressBookProblem.AssemblyInfo.cs
+C:\Users\PRITHVIL5\source\repos\addressBookProblem\addressBookProblem\obj\Debug\netcoreapp3.1\addressBookProblem.csproj.CoreCompileInputs.cache
+C:\Users\PRITHVIL5\source\repos\addressBookProblem\addressBookProblem\obj\Debug\netcoreapp3.1\addressBookProblem.dll
+C:\Users\PRITHVIL5\source\repos\addressBookProblem\addressBookProblem\obj\Debug\netcoreapp3.1\addressBookProblem.pdb
+C:\Users\PRITHVIL5\source\repos\addressBookProblem\addressBookProblem\obj\Debug\netcoreapp3.1\addressBookProblem.genruntimeconfig.cache
