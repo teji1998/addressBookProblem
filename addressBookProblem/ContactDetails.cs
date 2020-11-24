@@ -6,6 +6,7 @@ namespace addressBookProblem
 {
     class ContactDetails
     {
+        //Variables
         public String firstName;
         public String lastName;
         public String address;
@@ -15,6 +16,7 @@ namespace addressBookProblem
         public long phoneNumber;
         public String emailId;
 
+        //Constructor
         public ContactDetails(String firstName, String lastName, String address, String city, String state, long zip, long phoneNumber, String emailId)
         {
             this.firstName = firstName;
