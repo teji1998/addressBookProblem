@@ -4,10 +4,22 @@ using System.Text;
 
 namespace addressBookProblem
 {
+    
     class AddressBook
     {
+        // Creating a list to store the contacts 
+        List<ContactDetails> contactList;
+
         /// <summary>
-        /// Creates the contact .
+        /// Initializes a new instance of the <see cref="AddressBook"/> class.
+        /// </summary>
+        public AddressBook()
+        {
+            contactList = new List<ContactDetails>();
+        }
+
+        /// <summary>
+        /// Adds the contact .
         /// </summary>
         public void AddContact()
         {
@@ -26,8 +38,14 @@ namespace addressBookProblem
             Console.WriteLine("Enter the phone number");
             long phoneNumber = long.Parse(Console.ReadLine());
             Console.WriteLine("Enter the email");
-            String email = Console.ReadLine();
+            String emailId = Console.ReadLine();
+
+            // Creates a reference of contact class
+            ContactDetails contactDetails = new ContactDetails(firstName, lastName, address, city, state, zip, phoneNumber, emailId);
+            contactList.Add(contactDetails);
+            Console.WriteLine(contactDetails);
 
         }
+
     }
 }

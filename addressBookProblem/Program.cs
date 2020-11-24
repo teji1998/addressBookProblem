@@ -9,7 +9,7 @@ namespace addressBookProblem
             //Welcome message
             Console.WriteLine("Welcome to the address book problem !");
 
-            //To create the contact
+            //To adds the contact
             Console.WriteLine("Add the contact details here !");
             AddressBook addressBook = new AddressBook();
             addressBook.AddContact();

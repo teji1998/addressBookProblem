@@ -29,7 +29,13 @@ namespace addressBookProblem
             this.emailId = emailId;
         }
 
-        public string toString()
+        /// <summary>
+        /// Converts to string.
+        /// </summary>
+        /// <returns>
+        /// A <see cref="System.String" /> that represents this instance.
+        /// </returns>
+        public override string ToString()
         {
             return (" First Name : " + firstName + " Last Name : " + lastName + " Address : " + address + " City : " + city +
                 " State : " + state + " Zip : " + zip + " Phone No : " + phoneNumber + " Email Id : " + emailId );
