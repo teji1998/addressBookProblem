@@ -12,7 +12,7 @@ namespace addressBookProblem
             //To adds the contact
             Console.WriteLine("Add the contact details here !");
             AddressBook addressBook = new AddressBook();
-            addressBook.AddContact();
+            addressBook.AddressBookMenu();
 
         }
     }
