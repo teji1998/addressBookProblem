@@ -149,9 +149,12 @@ namespace addressBookProblem
             Console.WriteLine(contact);
         }
 
+        ////// <summary>
+        /// Deletes the contact.
+        /// </summary>
         public void DeleteContact()
         {
-            Console.WriteLine("Enter irst name");
+            Console.WriteLine("Enter first name");
             string firstName = Console.ReadLine();
             Console.WriteLine("Enter last name");
             string lastName = Console.ReadLine();
@@ -163,12 +166,12 @@ namespace addressBookProblem
                     if (contactList[index].GetLastName().Equals(lastName))
                     {
                         contactList.RemoveAt(index);
-                        Console.WriteLine("Contact deleted successfully!!!!!");
+                        Console.WriteLine("Contact deleted successfully!!!");
                     }
                 }
                 else
                 {
-                    Console.WriteLine("Contact name not  found");
+                    Console.WriteLine("Contact not  found");
                 }
             }
         }
