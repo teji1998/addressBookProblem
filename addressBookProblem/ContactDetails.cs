@@ -109,20 +109,11 @@ namespace addressBookProblem
         {
             this.phoneNumber = phoneNumber;
         }
-/*
-        internal void SetPhoneNumber(string phoneNumber)
-        {
-            throw new NotImplementedException();
-        }*/
-
-       
+        
         public void SetEmailId(string emailId)
         {
             this.emailId = emailId;
         }
-
-
-
 
         /// <summary>
         /// Converts to string.
@@ -130,7 +121,8 @@ namespace addressBookProblem
         /// <returns>
         /// A <see cref="System.String" /> that represents this instance.
         /// </returns>
-        public override string ToString()
+        override
+        public string ToString()
         {
             return (" First Name : " + firstName + " Last Name : " + lastName + " Address : " + address + " City : " + city +
                 " State : " + state + " Zip : " + zip + " Phone No : " + phoneNumber + " Email Id : " + emailId );

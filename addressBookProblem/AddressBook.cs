@@ -46,6 +46,8 @@ namespace addressBookProblem
             Console.WriteLine(contactDetails);
 
         }
+
+        //Gives the display menu
         public void DisplayingMenu()
         {
             Console.WriteLine(" Enter your choice ! ");
@@ -53,6 +55,10 @@ namespace addressBookProblem
             Console.WriteLine("To Edit contact : please press 2");
             Console.WriteLine("To Exit : please press 3");
         }
+
+        /// <summary>
+        /// Gives the edit menu.
+        /// </summary>
         public void EditMenu()
         {
             Console.WriteLine("Enter 1 to Edit FirstName");
@@ -84,6 +90,10 @@ namespace addressBookProblem
             }
         }
 
+        /// <summary>
+        /// Edits the contact list.
+        /// </summary>
+        /// <param name="contact">The contact.</param>
         public void EditContactList(ContactDetails contact)
         {
             Console.WriteLine("Enter your choice");
@@ -133,9 +143,12 @@ namespace addressBookProblem
                 default:
                     Console.WriteLine("Enter valid choice");
                     break;
+
             }
+            Console.WriteLine(contact);
         }
 
+      //Displays the address book menu
         public void AddressBookMenu()
         {
             bool flag = true;
