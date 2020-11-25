@@ -53,7 +53,8 @@ namespace addressBookProblem
             Console.WriteLine(" Enter your choice ! ");
             Console.WriteLine("For Adding contact : please press 1");
             Console.WriteLine("To Edit contact : please press 2");
-            Console.WriteLine("To Exit : please press 3");
+            Console.WriteLine("To Delete : please press 3");
+            Console.WriteLine("To exit : please press 4");
         }
 
         /// <summary>
@@ -148,7 +149,31 @@ namespace addressBookProblem
             Console.WriteLine(contact);
         }
 
-      //Displays the address book menu
+        public void DeleteContact()
+        {
+            Console.WriteLine("Enter irst name");
+            string firstName = Console.ReadLine();
+            Console.WriteLine("Enter last name");
+            string lastName = Console.ReadLine();
+
+            for (int index = 0; index < contactList.Count; index++)
+            {
+                if (contactList[index].GetFirstName().Equals(firstName))
+                {
+                    if (contactList[index].GetLastName().Equals(lastName))
+                    {
+                        contactList.RemoveAt(index);
+                        Console.WriteLine("Contact deleted successfully!!!!!");
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("Contact name not  found");
+                }
+            }
+        }
+
+        //Displays the address book menu
         public void AddressBookMenu()
         {
             bool flag = true;
@@ -163,6 +188,9 @@ namespace addressBookProblem
                         break;
                     case 2:
                         EditContact();
+                        break;
+                    case 3:
+                        DeleteContact();
                         break;
                     default:
                         flag = false;
