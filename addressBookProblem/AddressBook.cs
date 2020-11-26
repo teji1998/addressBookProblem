@@ -16,6 +16,7 @@ namespace addressBookProblem
         public string phoneNumber;
         public string zip;
         public string emailId;
+        NLog nLog = new NLog();
 
         // Creating a list to store the contacts 
         List<ContactDetails> contactList;
@@ -50,11 +51,14 @@ namespace addressBookProblem
                 contactList.ForEach(Console.WriteLine);
 
                 Console.WriteLine("Contact Added Successfully!!!!!");
+                nLog.LogDebug("Debug successful: AddContact()");
 
             }
             else
             {
                 Console.WriteLine("Enter a valid details");
+                nLog.LogError("Invalid input");
+                nLog.LogWarn("Give valid data");
             }
         }
 
@@ -79,7 +83,8 @@ namespace addressBookProblem
             phoneNumber = Console.ReadLine();
             Console.WriteLine("Enter the email");
             emailId = Console.ReadLine();
-            validatingPersonDetails(firstName, lastName, phoneNumber, zip);
+            validatingContact(firstName, lastName, phoneNumber, zip);
+            
 
         }
 
@@ -91,6 +96,7 @@ namespace addressBookProblem
             {
                 for (int index = 0; index < contactList.Count; index++)
                 {
+                    Console.WriteLine("/************************************************************/");
                     Console.WriteLine("First Name      :       " + contactList[index].firstName);
                     Console.WriteLine("Last Name       :       " + contactList[index].lastName);
                     Console.WriteLine("Address         :       " + contactList[index].address);
@@ -102,10 +108,13 @@ namespace addressBookProblem
                     Console.WriteLine("/************************************************************/");
 
                 }
+                nLog.LogDebug("Debug successful: ViewContact()");
             }
             else
             {
                 Console.WriteLine("Address Book is empty . No contacts to display");
+                nLog.LogError("Addressbook has null values");
+                nLog.LogWarn("Addressbook should have value");
             }
         }
 
@@ -117,7 +126,7 @@ namespace addressBookProblem
             Console.WriteLine("To Edit contact    : please press 2");
             Console.WriteLine("To Delete contact  : please press 3");
             Console.WriteLine("To View contact    : please press 4");
-            Console.WriteLine("To exit            : press any numbeer after 4");
+            Console.WriteLine("To exit            : please press any number after 4");
         }
 
         /// <summary>
@@ -146,10 +155,13 @@ namespace addressBookProblem
                 {
                     EditMenu();
                     EditContactList(contactList[index]);
+                    nLog.LogDebug("Debug successful: EditContact()");
                 }
                 else
                 {
                     Console.WriteLine("First Name does not exist");
+                    nLog.LogError("First name is not existing");
+                    nLog.LogWarn("First name should be correct");
                 }
             }
         }
@@ -230,11 +242,14 @@ namespace addressBookProblem
                     {
                         contactList.RemoveAt(index);
                         Console.WriteLine("Contact deleted successfully!!!");
+                        nLog.LogDebug("Debug successful: DeleteContact()");
                     }
                 }
                 else
                 {
                     Console.WriteLine("Contact not found");
+                    nLog.LogError("Contact is not existing");
+                    nLog.LogError("Give proper input");
                 }
             }
         }
