@@ -1,12 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Text.RegularExpressions;
 
 namespace addressBookProblem
 {
     
-    class AddressBook
+    class AddressBook : AddressBookInterface
     {
+        public string city;
+        public string firstName;
+        public string lastName;
+        public string address;
+        public string state;
+        public string phoneNumber;
+        public string zip;
+        public string emailId;
         // Creating a list to store the contacts 
         List<ContactDetails> contactList;
 
@@ -18,43 +27,93 @@ namespace addressBookProblem
             contactList = new List<ContactDetails>();
         }
 
+        
+        
+        String NAME = "^[a-zA-Z]{3,}$";
+        String PHONENUMBER = "^[1-9]{1}[0-9]{9}$";
+        String ZIP = "^[1-9]{1}[0-9]{5}$";
+
+        public void validatingPersonDetails(String firstName, String lastName, String phoneNumber, String zip)
+        {
+            if (Regex.IsMatch(firstName, NAME) && (Regex.IsMatch(lastName, NAME)) && (Regex.IsMatch(phoneNumber, PHONENUMBER)) && (Regex.IsMatch(zip, ZIP)))
+            {
+               
+                contactList.Add(new ContactDetails(firstName, lastName, address, city, state, phoneNumber, zip,emailId));
+                Console.WriteLine("Contact Added Successfully!!!!!");
+
+            }
+            else
+            {
+                Console.WriteLine("Enter a valid details");
+            }
+        }
+
         /// <summary>
         /// Adds the contact .
         /// </summary>
         public void AddContact()
         {
             Console.WriteLine("Enter the first name");
-            String firstName = Console.ReadLine();
+            firstName = Console.ReadLine();
             Console.WriteLine("Enter the last name");
-            String lastName = Console.ReadLine();
+            lastName = Console.ReadLine();
             Console.WriteLine("Enter the address");
-            String address = Console.ReadLine();
+            address = Console.ReadLine();
             Console.WriteLine("Enter the city");
-            String city = Console.ReadLine();
+            city = Console.ReadLine();
             Console.WriteLine("Enter the state");
-            String state = Console.ReadLine();
+            state = Console.ReadLine();
             Console.WriteLine("Enter the zip code");
-            String zip = Console.ReadLine(); // long.Parse is used to convert string into long
+            zip = Console.ReadLine();
             Console.WriteLine("Enter the phone number");
-            String phoneNumber = Console.ReadLine();
+            phoneNumber = Console.ReadLine();
             Console.WriteLine("Enter the email");
-            String emailId = Console.ReadLine();
+            emailId = Console.ReadLine();
+            validatingPersonDetails(firstName, lastName, phoneNumber, zip);
 
             // Creates a reference of contact class
-            ContactDetails contactDetails = new ContactDetails(firstName, lastName, address, city, state, zip, phoneNumber, emailId);
-            contactList.Add(contactDetails);
+           ContactDetails contactDetails = new ContactDetails(firstName, lastName, address, city, state, zip, phoneNumber, emailId);
+            /*contactList.Add(contactDetails);*/
             Console.WriteLine(contactDetails);
 
+           
+        }
+
+        public void ViewContact()
+        {
+            ///Checks for the length of List
+            ///If it is empty then it wont display any elements
+            if (contactList.Count != 0)
+            {
+                for (int index = 0; index < contactList.Count; index++)
+                {
+                    Console.WriteLine("First Name      :       " + contactList[index].firstName);
+                    Console.WriteLine("Last Name       :       " + contactList[index].lastName);
+                    Console.WriteLine("Address         :       " + contactList[index].address);
+                    Console.WriteLine("City            :       " + contactList[index].city);
+                    Console.WriteLine("State           :       " + contactList[index].state);
+                    Console.WriteLine("Phone Number    :       " + contactList[index].phoneNumber);
+                    Console.WriteLine("Zip             :       " + contactList[index].zip);
+                    Console.WriteLine("Email           :       " + contactList[index].emailId);
+                    Console.WriteLine("/************************************************************/");
+
+                }
+            }
+            else
+            {
+                Console.WriteLine("Address Book is empty . No contacts to display");
+            }
         }
 
         //Gives the display menu
         public void DisplayingMenu()
         {
-            Console.WriteLine(" Enter your choice ! ");
-            Console.WriteLine("For Adding contact : please press 1");
-            Console.WriteLine("To Edit contact : please press 2");
-            Console.WriteLine("To Delete : please press 3");
-            Console.WriteLine("To exit : please press 4");
+            Console.WriteLine("Enter your choice ! ");
+            Console.WriteLine("To Add contact     : please press 1");
+            Console.WriteLine("To Edit contact    : please press 2");
+            Console.WriteLine("To Delete contact  : please press 3");
+            Console.WriteLine("To View contact    : please press 4");
+            Console.WriteLine("To exit            : press any numbeer after 4");
         }
 
         /// <summary>
@@ -79,14 +138,14 @@ namespace addressBookProblem
 
             for (int index = 0; index < contactList.Count; index++)
             {
-                if (contactList[index].GetFirstName().Equals(userName))
+                if (contactList[index].firstName.Equals(userName))
                 {
                     EditMenu();
                     EditContactList(contactList[index]);
                 }
                 else
                 {
-                    Console.WriteLine("First Name does not exist");
+                    Console.WriteLine("First name does not exist");
                 }
             }
         }
@@ -104,42 +163,42 @@ namespace addressBookProblem
                 case 1:
                     Console.WriteLine("Enter the first name");
                     string name = Console.ReadLine();
-                    contact.SetFirstName(name);
+                    contact.firstName = name;
                     break;
                 case 2:
                     Console.WriteLine("Enter the last name");
                     string lastName = Console.ReadLine();
-                    contact.SetLastName(lastName);
+                    contact.lastName = lastName;
                     break;
                 case 3:
                     Console.WriteLine("Enter address");
                     string address = Console.ReadLine();
-                    contact.SetAddress(address);
+                    contact.address = address;
                     break;
                 case 4:
                     Console.WriteLine("Enter city");
                     string city = Console.ReadLine();
-                    contact.SetCity(city);
+                    contact.city = city;
                     break;
                 case 5:
                     Console.WriteLine("Enter state");
                     string state = Console.ReadLine();
-                    contact.SetState(state);
+                    contact.state = state;
                     break;
                 case 6:
                     Console.WriteLine("Enter Phone Number");
                     string phoneNumber = Console.ReadLine();
-                    contact.SetPhoneNumber(phoneNumber);
+                    contact.phoneNumber = phoneNumber;
                     break;
                 case 7:
                     Console.WriteLine("Enter Zip code");
                     string zipCode = Console.ReadLine();
-                    contact.SetZip(zipCode);
+                    contact.zip = zipCode;
                     break;
                 case 8:
                     Console.WriteLine("Enter Email");
                     string email = Console.ReadLine();
-                    contact.SetEmailId(email);
+                    contact.emailId = email;
                     break;
                 default:
                     Console.WriteLine("Enter valid choice");
@@ -161,9 +220,9 @@ namespace addressBookProblem
 
             for (int index = 0; index < contactList.Count; index++)
             {
-                if (contactList[index].GetFirstName().Equals(firstName))
+                if (contactList[index].firstName.Equals(firstName))
                 {
-                    if (contactList[index].GetLastName().Equals(lastName))
+                    if (contactList[index].lastName.Equals(lastName))
                     {
                         contactList.RemoveAt(index);
                         Console.WriteLine("Contact deleted successfully!!!");
@@ -171,7 +230,7 @@ namespace addressBookProblem
                 }
                 else
                 {
-                    Console.WriteLine("Contact not  found");
+                    Console.WriteLine("Contact not found");
                 }
             }
         }
@@ -195,6 +254,10 @@ namespace addressBookProblem
                     case 3:
                         DeleteContact();
                         break;
+                    case 4:
+                        ViewContact();
+                        break;
+
                     default:
                         flag = false;
                         break;
