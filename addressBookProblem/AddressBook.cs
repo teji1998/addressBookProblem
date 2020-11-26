@@ -34,7 +34,7 @@ namespace addressBookProblem
             Console.WriteLine("Enter the state");
             String state = Console.ReadLine();
             Console.WriteLine("Enter the zip code");
-            String zip = Console.ReadLine(); // long.Parse is used to convert string into long
+            String zip = Console.ReadLine(); 
             Console.WriteLine("Enter the phone number");
             String phoneNumber = Console.ReadLine();
             Console.WriteLine("Enter the email");
