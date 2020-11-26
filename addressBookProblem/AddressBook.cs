@@ -5,7 +5,7 @@ using System.Text.RegularExpressions;
 
 namespace addressBookProblem
 {
-    
+
     class AddressBook : AddressBookInterface
     {
         public string city;
@@ -34,8 +34,8 @@ namespace addressBookProblem
             contactList = new List<ContactDetails>();
         }
 
-        
-        
+
+
         String NAME = "^[a-zA-Z]{3,}$";
         String PHONENUMBER = "^[1-9]{1}[0-9]{9}$";
         String ZIP = "^[1-9]{1}[0-9]{5}$";
@@ -45,8 +45,8 @@ namespace addressBookProblem
         {
             if (Regex.IsMatch(firstName, NAME) && (Regex.IsMatch(lastName, NAME)) && (Regex.IsMatch(phoneNumber, PHONENUMBER)) && (Regex.IsMatch(zip, ZIP)))
             {
-               
-                contactList.Add(new ContactDetails(firstName, lastName, address, city, state, phoneNumber, zip,emailId));
+
+                contactList.Add(new ContactDetails(firstName, lastName, address, city, state, phoneNumber, zip, emailId));
                 sortedAddressBook.Add(firstName, contactList);
                 contactList.ForEach(Console.WriteLine);
 
@@ -67,30 +67,37 @@ namespace addressBookProblem
         /// </summary>
         public void AddContact()
         {
-            Console.WriteLine("please enter number of persons to be added");
-            int noOfPersons = Convert.ToInt32(Console.ReadLine());
-            for (int i = 1; i <= noOfPersons; i++)
+            try
             {
-                Console.WriteLine("Enter the first name");
-                firstName = Console.ReadLine();
-                Console.WriteLine("Enter the last name");
-                lastName = Console.ReadLine();
-                Console.WriteLine("Enter the address");
-                address = Console.ReadLine();
-                Console.WriteLine("Enter the city");
-                city = Console.ReadLine();
-                Console.WriteLine("Enter the state");
-                state = Console.ReadLine();
-                Console.WriteLine("Enter the zip code");
-                zip = Console.ReadLine();
-                Console.WriteLine("Enter the phone number");
-                phoneNumber = Console.ReadLine();
-                Console.WriteLine("Enter the email");
-                emailId = Console.ReadLine();
-                validatingContact(firstName, lastName, phoneNumber, zip);
+                Console.WriteLine("please enter number of persons to be added");
+                int noOfPersons = Convert.ToInt32(Console.ReadLine());
+                for (int i = 1; i <= noOfPersons; i++)
+                {
+                    Console.WriteLine("Enter the first name");
+                    firstName = Console.ReadLine();
+                    Console.WriteLine("Enter the last name");
+                    lastName = Console.ReadLine();
+                    Console.WriteLine("Enter the address");
+                    address = Console.ReadLine();
+                    Console.WriteLine("Enter the city");
+                    city = Console.ReadLine();
+                    Console.WriteLine("Enter the state");
+                    state = Console.ReadLine();
+                    Console.WriteLine("Enter the zip code");
+                    zip = Console.ReadLine();
+                    Console.WriteLine("Enter the phone number");
+                    phoneNumber = Console.ReadLine();
+                    Console.WriteLine("Enter the email");
+                    emailId = Console.ReadLine();
+                    validatingContact(firstName, lastName, phoneNumber, zip);
+
+                }
+
             }
-            
-            
+            catch (System.FormatException addressException)
+            {
+                throw new AddressBookException(addressException.Message);
+            }
 
         }
 
@@ -179,55 +186,66 @@ namespace addressBookProblem
         public void EditContactList(ContactDetails contact)
         {
             Console.WriteLine("Enter your choice");
-            int choice = Convert.ToInt32(Console.ReadLine());
-            switch (choice)
+            try
             {
-                case 1:
-                    Console.WriteLine("Enter the first name");
-                    string name = Console.ReadLine();
-                    contact.firstName = name;
-                    break;
-                case 2:
-                    Console.WriteLine("Enter the last name");
-                    string lastName = Console.ReadLine();
-                    contact.lastName = lastName;
-                    break;
-                case 3:
-                    Console.WriteLine("Enter address");
-                    string address = Console.ReadLine();
-                    contact.address = address;
-                    break;
-                case 4:
-                    Console.WriteLine("Enter city");
-                    string city = Console.ReadLine();
-                    contact.city = city;
-                    break;
-                case 5:
-                    Console.WriteLine("Enter state");
-                    string state = Console.ReadLine();
-                    contact.state = state;
-                    break;
-                case 6:
-                    Console.WriteLine("Enter Phone Number");
-                    string phoneNumber = Console.ReadLine();
-                    contact.phoneNumber = phoneNumber;
-                    break;
-                case 7:
-                    Console.WriteLine("Enter Zip code");
-                    string zipCode = Console.ReadLine();
-                    contact.zip = zipCode;
-                    break;
-                case 8:
-                    Console.WriteLine("Enter Email");
-                    string email = Console.ReadLine();
-                    contact.emailId = email;
-                    break;
-                default:
-                    Console.WriteLine("Enter valid choice");
-                    break;
+                var choice = Convert.ToInt32(Console.ReadLine());
+                switch (choice)
+                {
+                    case 1:
+                        Console.WriteLine("Enter the first name");
+                        string name = Console.ReadLine();
+                        contact.firstName = name;
+                        break;
+                    case 2:
+                        Console.WriteLine("Enter the last name");
+                        string lastName = Console.ReadLine();
+                        contact.lastName = lastName;
+                        break;
+                    case 3:
+                        Console.WriteLine("Enter address");
+                        string address = Console.ReadLine();
+                        contact.address = address;
+                        break;
+                    case 4:
+                        Console.WriteLine("Enter city");
+                        string city = Console.ReadLine();
+                        contact.city = city;
+                        break;
+                    case 5:
+                        Console.WriteLine("Enter state");
+                        string state = Console.ReadLine();
+                        contact.state = state;
+                        break;
+                    case 6:
+                        Console.WriteLine("Enter Phone Number");
+                        string phoneNumber = Console.ReadLine();
+                        contact.phoneNumber = phoneNumber;
+                        break;
+                    case 7:
+                        Console.WriteLine("Enter Zip code");
+                        string zipCode = Console.ReadLine();
+                        contact.zip = zipCode;
+                        break;
+                    case 8:
+                        Console.WriteLine("Enter Email");
+                        string email = Console.ReadLine();
+                        contact.emailId = email;
+                        break;
+                    default:
+                        Console.WriteLine("Enter valid choice");
+                        break;
 
+                }
+                Console.WriteLine(contact);
+            }catch(System.FormatException formatException)
+            {
+                Console.WriteLine(formatException.Message);
             }
-            Console.WriteLine(contact);
+            catch (AddressBookException exception)
+            {
+                Console.WriteLine(exception.Message);
+            }
+
         }
 
         ////// <summary>
@@ -267,25 +285,37 @@ namespace addressBookProblem
             while (flag)
             {
                 DisplayingMenu();
-                int choice = Convert.ToInt32(Console.ReadLine());
-                switch (choice)
+                try
                 {
-                    case 1:
-                        AddContact();
-                        break;
-                    case 2:
-                        EditContact();
-                        break;
-                    case 3:
-                        DeleteContact();
-                        break;
-                    case 4:
-                        ViewContact();
-                        break;
+                    var choice = Convert.ToInt32(Console.ReadLine());
+                    switch (choice)
+                    {
+                        case 1:
+                            AddContact();
+                            break;
+                        case 2:
+                            EditContact();
+                            break;
+                        case 3:
+                            DeleteContact();
+                            break;
+                        case 4:
+                            ViewContact();
+                            break;
 
-                    default:
-                        flag = false;
-                        break;
+                        default:
+                            flag = false;
+                            break;
+                    }
+                }catch(System.FormatException exception)
+                {
+                    Console.WriteLine(exception.Message);
+                }
+
+                catch (AddressBookException addressBookException)
+                {
+                    Console.WriteLine(addressBookException.Message);
+
                 }
             }
         }
