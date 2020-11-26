@@ -42,9 +42,84 @@ namespace addressBookProblem
 
             // Creates a reference of contact class
             ContactDetails contactDetails = new ContactDetails(firstName, lastName, address, city, state, zip, phoneNumber, emailId);
-            contactList.Add(contactDetails);
-            Console.WriteLine(contactDetails);
+            if (CheckingForSpaces(firstName, lastName))
+            {
+                Console.WriteLine("Please Enter Valid Contact Names");
+            }
+            else
+            {
+                CheckForDuplicates(contactDetails, firstName, lastName);
+            }
 
+        }
+
+        /// <summary>
+        /// Checking whether the Name of contact contains whitespaces or null
+        /// </summary>
+        /// <param name="firstName">The first name.</param>
+        /// <param name="lastName">The last name.</param>
+        /// <returns></returns>
+        public bool CheckingForSpaces(string firstName, string lastName)
+        {
+            if (string.IsNullOrWhiteSpace(firstName) && string.IsNullOrWhiteSpace(lastName))
+            {
+                return true;
+            }
+            return false;
+        }
+        /// <summary>
+        /// Checks for duplicates.
+        /// </summary>
+        /// <param name="contact">The contact.</param>
+        /// <param name="firstName">The first name.</param>
+        /// <param name="lastName">The last name.</param>
+        public void CheckForDuplicates(ContactDetails contact, string firstName, string lastName)
+        {
+            if (contactList.Count == 0)
+            {
+                contactList.Add(contact);
+                Console.WriteLine("Contact Added Successfully!!!!!");
+            }
+            else
+            {
+                for (int index = 0; index < contactList.Count; index++)
+                {
+                    if (contactList[index].firstName.Equals(firstName) && contactList[index].lastName.Equals(lastName))
+                    {
+                        Console.WriteLine("Contact already present");
+                    }
+                    else
+                    {
+                        contactList.Add(contact);
+                        Console.WriteLine("Contact Added Successfully!!!!!");
+                    }
+                }
+            }
+        }
+
+        public void ViewContact()
+        {
+            ///Checks for the length of List
+            ///If it is empty then it wont display any elements
+            if (contactList.Count != 0)
+            {
+                for (int index = 0; index < contactList.Count; index++)
+                {
+                    Console.WriteLine("First Name      :       " + contactList[index].firstName);
+                    Console.WriteLine("Last Name       :       " + contactList[index].lastName);
+                    Console.WriteLine("Address         :       " + contactList[index].address);
+                    Console.WriteLine("City            :       " + contactList[index].city);
+                    Console.WriteLine("State           :       " + contactList[index].state);
+                    Console.WriteLine("Phone Number    :       " + contactList[index].phoneNumber);
+                    Console.WriteLine("Zip             :       " + contactList[index].zip);
+                    Console.WriteLine("Email           :       " + contactList[index].emailId);
+                   
+                }
+            }
+            else
+            {
+                Console.WriteLine("Address Book is empty . No contacts to display");
+            }
         }
 
         //Gives the display menu
@@ -54,7 +129,8 @@ namespace addressBookProblem
             Console.WriteLine("For Adding contact : please press 1");
             Console.WriteLine("To Edit contact : please press 2");
             Console.WriteLine("To Delete : please press 3");
-            Console.WriteLine("To exit : please press 4");
+            Console.WriteLine("Press 4 to View Contact Details");
+            Console.WriteLine("To exit : please press 5");
         }
 
         /// <summary>
@@ -195,6 +271,10 @@ namespace addressBookProblem
                     case 3:
                         DeleteContact();
                         break;
+                    case 4:
+                        ViewContact();
+                        break;
+
                     default:
                         flag = false;
                         break;
