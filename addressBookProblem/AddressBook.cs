@@ -6,7 +6,7 @@ using System.Text.RegularExpressions;
 namespace addressBookProblem
 {
     
-    class AddressBook
+    class AddressBook : AddressBookInterface
     {
         public string city;
         public string firstName;
