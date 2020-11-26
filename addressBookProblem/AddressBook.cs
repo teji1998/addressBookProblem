@@ -18,6 +18,9 @@ namespace addressBookProblem
         public string emailId;
         // Creating a list to store the contacts 
         List<ContactDetails> contactList;
+        Dictionary<String, List<ContactDetails>> sortedBook = new Dictionary<String, List<ContactDetails>>();
+
+
 
         /// <summary>
         /// Initializes a new instance of the <see cref="AddressBook"/> class.
@@ -39,6 +42,9 @@ namespace addressBookProblem
             {
                
                 contactList.Add(new ContactDetails(firstName, lastName, address, city, state, phoneNumber, zip,emailId));
+                sortedBook.Add(firstName, contactList);
+                contactList.ForEach(Console.WriteLine);
+
                 Console.WriteLine("Contact Added Successfully!!!!!");
 
             }
@@ -71,10 +77,13 @@ namespace addressBookProblem
             emailId = Console.ReadLine();
             validatingPersonDetails(firstName, lastName, phoneNumber, zip);
 
-            // Creates a reference of contact class
+            /*// Creates a reference of contact class
            ContactDetails contactDetails = new ContactDetails(firstName, lastName, address, city, state, zip, phoneNumber, emailId);
-            /*contactList.Add(contactDetails);*/
+            //contactList.Add(contactDetails);*//*
+            
             Console.WriteLine(contactDetails);
+            sortedBook.Add(firstName, contactList);
+            Console.WriteLine(contactList);*/
 
            
         }
@@ -145,7 +154,7 @@ namespace addressBookProblem
                 }
                 else
                 {
-                    Console.WriteLine("First name does not exist");
+                    Console.WriteLine("First Name does not exist");
                 }
             }
         }
