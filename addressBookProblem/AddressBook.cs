@@ -1,12 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Text.RegularExpressions;
 
 namespace addressBookProblem
 {
     
     class AddressBook
     {
+        public string city;
+        public string firstName;
+        public string lastName;
+        public string address;
+        public string state;
+        public string phoneNumber;
+        public string zip;
+        public string emailId;
         // Creating a list to store the contacts 
         List<ContactDetails> contactList;
 
@@ -18,83 +27,56 @@ namespace addressBookProblem
             contactList = new List<ContactDetails>();
         }
 
+        
+        
+        String NAME = "^[a-zA-Z]{3,}$";
+        String PHONENUMBER = "^[1-9]{1}[0-9]{9}$";
+        String ZIP = "^[1-9]{1}[0-9]{5}$";
+
+        public void validatingPersonDetails(String firstName, String lastName, String phoneNumber, String zip)
+        {
+            if (Regex.IsMatch(firstName, NAME) && (Regex.IsMatch(lastName, NAME)) && (Regex.IsMatch(phoneNumber, PHONENUMBER)) && (Regex.IsMatch(zip, ZIP)))
+            {
+               
+                contactList.Add(new ContactDetails(firstName, lastName, address, city, state, phoneNumber, zip,emailId));
+                Console.WriteLine("Contact Added Successfully!!!!!");
+
+            }
+            else
+            {
+                Console.WriteLine("Enter a valid details");
+            }
+        }
+
         /// <summary>
         /// Adds the contact .
         /// </summary>
         public void AddContact()
         {
             Console.WriteLine("Enter the first name");
-            String firstName = Console.ReadLine();
+            firstName = Console.ReadLine();
             Console.WriteLine("Enter the last name");
-            String lastName = Console.ReadLine();
+            lastName = Console.ReadLine();
             Console.WriteLine("Enter the address");
-            String address = Console.ReadLine();
+            address = Console.ReadLine();
             Console.WriteLine("Enter the city");
-            String city = Console.ReadLine();
+            city = Console.ReadLine();
             Console.WriteLine("Enter the state");
-            String state = Console.ReadLine();
+            state = Console.ReadLine();
             Console.WriteLine("Enter the zip code");
-            String zip = Console.ReadLine(); 
+            zip = Console.ReadLine();
             Console.WriteLine("Enter the phone number");
-            String phoneNumber = Console.ReadLine();
+            phoneNumber = Console.ReadLine();
             Console.WriteLine("Enter the email");
-            String emailId = Console.ReadLine();
+            emailId = Console.ReadLine();
+            validatingPersonDetails(firstName, lastName, phoneNumber, zip);
 
             // Creates a reference of contact class
-            ContactDetails contactDetails = new ContactDetails(firstName, lastName, address, city, state, zip, phoneNumber, emailId);
-            if (CheckingForSpaces(firstName, lastName))
-            {
-                Console.WriteLine("Please Enter Valid Contact Names");
-            }
-            else
-            {
-                CheckForDuplicates(contactDetails, firstName, lastName);
-            }
+           ContactDetails contactDetails = new ContactDetails(firstName, lastName, address, city, state, zip, phoneNumber, emailId);
+            /*contactList.Add(contactDetails);*/
+            Console.WriteLine(contactDetails);
 
-        }
-
-        /// <summary>
-        /// Checking whether the Name of contact contains whitespaces or null
-        /// </summary>
-        /// <param name="firstName">The first name.</param>
-        /// <param name="lastName">The last name.</param>
-        /// <returns></returns>
-        public bool CheckingForSpaces(string firstName, string lastName)
-        {
-            if (string.IsNullOrWhiteSpace(firstName) && string.IsNullOrWhiteSpace(lastName))
-            {
-                return true;
-            }
-            return false;
-        }
-        /// <summary>
-        /// Checks for duplicates.
-        /// </summary>
-        /// <param name="contact">The contact.</param>
-        /// <param name="firstName">The first name.</param>
-        /// <param name="lastName">The last name.</param>
-        public void CheckForDuplicates(ContactDetails contact, string firstName, string lastName)
-        {
-            if (contactList.Count == 0)
-            {
-                contactList.Add(contact);
-                Console.WriteLine("Contact Added Successfully!!!!!");
-            }
-            else
-            {
-                for (int index = 0; index < contactList.Count; index++)
-                {
-                    if (contactList[index].firstName.Equals(firstName) && contactList[index].lastName.Equals(lastName))
-                    {
-                        Console.WriteLine("Contact already present");
-                    }
-                    else
-                    {
-                        contactList.Add(contact);
-                        Console.WriteLine("Contact Added Successfully!!!!!");
-                    }
-                }
-            }
+           
         }
 
         public void ViewContact()
@@ -113,7 +95,8 @@ namespace addressBookProblem
                     Console.WriteLine("Phone Number    :       " + contactList[index].phoneNumber);
                     Console.WriteLine("Zip             :       " + contactList[index].zip);
                     Console.WriteLine("Email           :       " + contactList[index].emailId);
-                   
+                    Console.WriteLine("/************************************************************/");
+
                 }
             }
             else
