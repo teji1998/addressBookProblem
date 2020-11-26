@@ -108,12 +108,12 @@ namespace addressBookProblem
         //Gives the display menu
         public void DisplayingMenu()
         {
-            Console.WriteLine(" Enter your choice ! ");
-            Console.WriteLine("For Adding contact : please press 1");
-            Console.WriteLine("To Edit contact : please press 2");
-            Console.WriteLine("To Delete : please press 3");
-            Console.WriteLine("Press 4 to View Contact Details");
-            Console.WriteLine("To exit : please press 5");
+            Console.WriteLine("Enter your choice ! ");
+            Console.WriteLine("To Add contact     : please press 1");
+            Console.WriteLine("To Edit contact    : please press 2");
+            Console.WriteLine("To Delete contact  : please press 3");
+            Console.WriteLine("To View contact    : please press 4");
+            Console.WriteLine("To exit            : press any numbeer after 4");
         }
 
         /// <summary>
@@ -145,7 +145,7 @@ namespace addressBookProblem
                 }
                 else
                 {
-                    Console.WriteLine("First Name does not exist");
+                    Console.WriteLine("First name does not exist");
                 }
             }
         }
@@ -230,7 +230,7 @@ namespace addressBookProblem
                 }
                 else
                 {
-                    Console.WriteLine("Contact not  found");
+                    Console.WriteLine("Contact not found");
                 }
             }
         }
