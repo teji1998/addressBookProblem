@@ -12,3 +12,6 @@
 2020-11-27 02:58:55.8387|DEBUG|addressBookProblem.NLog|Debug successful: DeleteContact()
 2020-11-27 02:58:59.3460|ERROR|addressBookProblem.NLog|Addressbook has null values
 2020-11-27 02:58:59.4295|WARN|addressBookProblem.NLog|Addressbook should have value
+2020-11-27 03:03:53.9703|DEBUG|addressBookProblem.NLog|Debug successful: AddContact()
+2020-11-27 03:04:30.8169|DEBUG|addressBookProblem.NLog|Debug successful: AddContact()
+2020-11-27 03:05:06.6530|DEBUG|addressBookProblem.NLog|Debug successful: ViewContact()

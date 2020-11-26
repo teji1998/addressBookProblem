@@ -1,1 +1,14 @@
-﻿
+﻿2020-11-27 02:55:28.7082|ERROR|addressBookProblem.NLog|Addressbook has null values
+2020-11-27 02:55:29.1447|WARN|addressBookProblem.NLog|Addressbook should have value
+2020-11-27 02:55:53.8487|ERROR|addressBookProblem.NLog|Invalid input
+2020-11-27 02:55:53.9479|WARN|addressBookProblem.NLog|Give valid data
+2020-11-27 02:56:59.3814|DEBUG|addressBookProblem.NLog|Debug successful: AddContact()
+2020-11-27 02:57:45.6327|DEBUG|addressBookProblem.NLog|Debug successful: EditContact()
+2020-11-27 02:57:55.7641|ERROR|addressBookProblem.NLog|First name is not existing
+2020-11-27 02:57:55.8668|WARN|addressBookProblem.NLog|First name should be correct
+2020-11-27 02:58:14.5736|DEBUG|addressBookProblem.NLog|Debug successful: ViewContact()
+2020-11-27 02:58:40.5174|ERROR|addressBookProblem.NLog|Contact is not existing
+2020-11-27 02:58:40.6072|ERROR|addressBookProblem.NLog|Give proper input
+2020-11-27 02:58:55.8387|DEBUG|addressBookProblem.NLog|Debug successful: DeleteContact()
+2020-11-27 02:58:59.3460|ERROR|addressBookProblem.NLog|Addressbook has null values
+2020-11-27 02:58:59.4295|WARN|addressBookProblem.NLog|Addressbook should have value

@@ -67,23 +67,29 @@ namespace addressBookProblem
         /// </summary>
         public void AddContact()
         {
-            Console.WriteLine("Enter the first name");
-            firstName = Console.ReadLine();
-            Console.WriteLine("Enter the last name");
-            lastName = Console.ReadLine();
-            Console.WriteLine("Enter the address");
-            address = Console.ReadLine();
-            Console.WriteLine("Enter the city");
-            city = Console.ReadLine();
-            Console.WriteLine("Enter the state");
-            state = Console.ReadLine();
-            Console.WriteLine("Enter the zip code");
-            zip = Console.ReadLine();
-            Console.WriteLine("Enter the phone number");
-            phoneNumber = Console.ReadLine();
-            Console.WriteLine("Enter the email");
-            emailId = Console.ReadLine();
-            validatingContact(firstName, lastName, phoneNumber, zip);
+            Console.WriteLine("please enter number of persons to be added");
+            int noOfPersons = Convert.ToInt32(Console.ReadLine());
+            for (int i = 1; i <= noOfPersons; i++)
+            {
+                Console.WriteLine("Enter the first name");
+                firstName = Console.ReadLine();
+                Console.WriteLine("Enter the last name");
+                lastName = Console.ReadLine();
+                Console.WriteLine("Enter the address");
+                address = Console.ReadLine();
+                Console.WriteLine("Enter the city");
+                city = Console.ReadLine();
+                Console.WriteLine("Enter the state");
+                state = Console.ReadLine();
+                Console.WriteLine("Enter the zip code");
+                zip = Console.ReadLine();
+                Console.WriteLine("Enter the phone number");
+                phoneNumber = Console.ReadLine();
+                Console.WriteLine("Enter the email");
+                emailId = Console.ReadLine();
+                validatingContact(firstName, lastName, phoneNumber, zip);
+            }
+            
             
 
         }
