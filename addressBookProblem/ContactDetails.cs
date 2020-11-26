@@ -7,14 +7,14 @@ namespace addressBookProblem
     class ContactDetails
     {
         //Variables
-        public String firstName; // { get; set; }
-        public String lastName; // { get; set; }
-        public String address; //{ get; set; }
-        public String city; // { get; set; }
-        public String state; // { get; set; }
-        public String zip; // { get; set; }
-        public String phoneNumber; // { get; set; }
-        public String emailId; // { get; set; }
+        public String firstName { get; set; }
+        public String lastName { get; set; }
+        public String address { get; set; }
+        public String city { get; set; }
+        public String state { get; set; }
+        public String zip { get; set; }
+        public String phoneNumber { get; set; }
+        public String emailId { get; set; }
 
         //Constructor
         public ContactDetails(String firstName, String lastName, String address, String city, String state, String zip, String phoneNumber, String emailId)
@@ -31,11 +31,11 @@ namespace addressBookProblem
         
         //Get and set methods are used
         
-        public string GetFirstName()
+       /* public string GetFirstName()
         {
             return firstName;
-        }
-       
+        }*/
+       /*
         public string GetLastName()
         {
             return lastName;
@@ -70,17 +70,17 @@ namespace addressBookProblem
         {
             return zip;
         }
-        
+        */
 
         //Set method takes the parameter that is passed
         //and variable names are being assigned
         //Also this keyword is being used to refer the current object
-        public void SetFirstName(string firstName)
+       /* public void SetFirstName(string firstName)
         {
             this.firstName = firstName;
-        }
+        }*/
        
-        public void SetLastName(string lastName)
+       /* public void SetLastName(string lastName)
         {
             this.lastName = lastName;
         }
@@ -113,7 +113,7 @@ namespace addressBookProblem
         public void SetEmailId(string emailId)
         {
             this.emailId = emailId;
-        }
+        }*/
 
         /// <summary>
         /// Converts to string.

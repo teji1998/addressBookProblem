@@ -79,7 +79,7 @@ namespace addressBookProblem
 
             for (int index = 0; index < contactList.Count; index++)
             {
-                if (contactList[index].GetFirstName().Equals(userName))
+                if (contactList[index].firstName.Equals(userName))
                 {
                     EditMenu();
                     EditContactList(contactList[index]);
@@ -104,42 +104,42 @@ namespace addressBookProblem
                 case 1:
                     Console.WriteLine("Enter the first name");
                     string name = Console.ReadLine();
-                    contact.SetFirstName(name);
+                    contact.firstName = name;
                     break;
                 case 2:
                     Console.WriteLine("Enter the last name");
                     string lastName = Console.ReadLine();
-                    contact.SetLastName(lastName);
+                    contact.lastName = lastName;
                     break;
                 case 3:
                     Console.WriteLine("Enter address");
                     string address = Console.ReadLine();
-                    contact.SetAddress(address);
+                    contact.address = address;
                     break;
                 case 4:
                     Console.WriteLine("Enter city");
                     string city = Console.ReadLine();
-                    contact.SetCity(city);
+                    contact.city = city;
                     break;
                 case 5:
                     Console.WriteLine("Enter state");
                     string state = Console.ReadLine();
-                    contact.SetState(state);
+                    contact.state = state;
                     break;
                 case 6:
                     Console.WriteLine("Enter Phone Number");
                     string phoneNumber = Console.ReadLine();
-                    contact.SetPhoneNumber(phoneNumber);
+                    contact.phoneNumber = phoneNumber;
                     break;
                 case 7:
                     Console.WriteLine("Enter Zip code");
                     string zipCode = Console.ReadLine();
-                    contact.SetZip(zipCode);
+                    contact.zip = zipCode;
                     break;
                 case 8:
                     Console.WriteLine("Enter Email");
                     string email = Console.ReadLine();
-                    contact.SetEmailId(email);
+                    contact.emailId = email;
                     break;
                 default:
                     Console.WriteLine("Enter valid choice");
@@ -161,9 +161,9 @@ namespace addressBookProblem
 
             for (int index = 0; index < contactList.Count; index++)
             {
-                if (contactList[index].GetFirstName().Equals(firstName))
+                if (contactList[index].firstName.Equals(firstName))
                 {
-                    if (contactList[index].GetLastName().Equals(lastName))
+                    if (contactList[index].lastName.Equals(lastName))
                     {
                         contactList.RemoveAt(index);
                         Console.WriteLine("Contact deleted successfully!!!");
