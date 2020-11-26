@@ -16,9 +16,12 @@ namespace addressBookProblem
         public string phoneNumber;
         public string zip;
         public string emailId;
+
         // Creating a list to store the contacts 
         List<ContactDetails> contactList;
-        Dictionary<String, List<ContactDetails>> sortedBook = new Dictionary<String, List<ContactDetails>>();
+
+        //Creating a dictionary to store the addressbooks
+        Dictionary<String, List<ContactDetails>> sortedAddressBook = new Dictionary<String, List<ContactDetails>>();
 
 
 
@@ -36,13 +39,14 @@ namespace addressBookProblem
         String PHONENUMBER = "^[1-9]{1}[0-9]{9}$";
         String ZIP = "^[1-9]{1}[0-9]{5}$";
 
-        public void validatingPersonDetails(String firstName, String lastName, String phoneNumber, String zip)
+        //Validating the contact in addressbook
+        public void validatingContact(String firstName, String lastName, String phoneNumber, String zip)
         {
             if (Regex.IsMatch(firstName, NAME) && (Regex.IsMatch(lastName, NAME)) && (Regex.IsMatch(phoneNumber, PHONENUMBER)) && (Regex.IsMatch(zip, ZIP)))
             {
                
                 contactList.Add(new ContactDetails(firstName, lastName, address, city, state, phoneNumber, zip,emailId));
-                sortedBook.Add(firstName, contactList);
+                sortedAddressBook.Add(firstName, contactList);
                 contactList.ForEach(Console.WriteLine);
 
                 Console.WriteLine("Contact Added Successfully!!!!!");
@@ -77,15 +81,6 @@ namespace addressBookProblem
             emailId = Console.ReadLine();
             validatingPersonDetails(firstName, lastName, phoneNumber, zip);
 
-            /*// Creates a reference of contact class
-           ContactDetails contactDetails = new ContactDetails(firstName, lastName, address, city, state, zip, phoneNumber, emailId);
-            //contactList.Add(contactDetails);*//*
-            
-            Console.WriteLine(contactDetails);
-            sortedBook.Add(firstName, contactList);
-            Console.WriteLine(contactList);*/
-
-           
         }
 
         public void ViewContact()
