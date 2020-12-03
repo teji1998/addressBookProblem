@@ -352,9 +352,9 @@ namespace addressBookProblem
                         break;
                 }
             }
-            catch (System.FormatException)
+            catch (System.FormatException formatException)
             {
-                throw new AddressBookException("Please enter correct input");
+                Console.WriteLine(formatException.Message);
             }
         }
     }
