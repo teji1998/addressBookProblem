@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 
@@ -137,7 +138,8 @@ namespace addressBookProblem
             Console.WriteLine("To Edit contact    : please press 2");
             Console.WriteLine("To Delete contact  : please press 3");
             Console.WriteLine("To View contact    : please press 4");
-            Console.WriteLine("To exit            : please press any number after 4");
+            Console.WriteLine("To search contact  : please press 5");
+            Console.WriteLine("To exit            : please press any number after 5");
         }
 
         /// <summary>
@@ -296,7 +298,9 @@ namespace addressBookProblem
                         case 4:
                             ViewContact();
                             break;
-
+                        case 5:
+                            SearchContact();
+                            break;
                         default:
                             flag = false;
                             break;
@@ -319,6 +323,38 @@ namespace addressBookProblem
             else
             {
                 return false;
+            }
+        }
+
+        public void SearchContact()
+        {
+            Console.WriteLine("To search from city  : please press 1 \n To search from state : please press 2 ");
+            try
+            {
+                int option = Convert.ToInt32(Console.ReadLine());
+                switch (option)
+                {
+                    case 1:
+                        Console.WriteLine("Enter city name to search");
+                        string searchingCity = Console.ReadLine();
+                        foreach (ContactDetails contactDetails in contactList.FindAll(cityData => cityData.city.Equals(searchingCity)).ToList())
+                        {
+                            Console.WriteLine(contactDetails.ToString());
+                        }
+                        break;
+                    case 2:
+                        Console.WriteLine("Enter state name to search");
+                        string searchingState = Console.ReadLine();
+                        foreach (ContactDetails contactDetails in contactList.FindAll(stateData => stateData.state.Equals(searchingState)).ToList())
+                        {
+                            Console.WriteLine(contactDetails.ToString());
+                        }
+                        break;
+                }
+            }
+            catch (System.FormatException)
+            {
+                throw new AddressBookException("Please enter correct input");
             }
         }
     }

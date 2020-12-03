@@ -41,3 +41,7 @@
 2020-12-04 00:03:31.0463|DEBUG|addressBookProblem.NLog|Debug successful: AddContact()
 2020-12-04 00:04:00.3350|ERROR|addressBookProblem.NLog|Invalid input
 2020-12-04 00:04:00.4595|WARN|addressBookProblem.NLog|Give valid data
+2020-12-04 00:30:38.1610|DEBUG|addressBookProblem.NLog|Debug successful: AddContact()
+2020-12-04 00:31:21.8919|DEBUG|addressBookProblem.NLog|Debug successful: AddContact()
+2020-12-04 00:32:06.7490|DEBUG|addressBookProblem.NLog|Debug successful: AddContact()
+2020-12-04 00:32:49.4807|DEBUG|addressBookProblem.NLog|Debug successful: AddContact()
