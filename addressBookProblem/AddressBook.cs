@@ -265,14 +265,12 @@ namespace addressBookProblem
 
             for (int index = 0; index < contactList.Count; index++)
             {
-                if (contactList[index].firstName.Equals(firstName))
+                if ((contactList[index].firstName.Equals(firstName)) && (contactList[index].lastName.Equals(lastName)))
                 {
-                    if (contactList[index].lastName.Equals(lastName))
-                    {
-                        contactList.RemoveAt(index);
-                        Console.WriteLine("Contact deleted successfully!!!");
-                        nLog.LogDebug("Debug successful: DeleteContact()");
-                    }
+                     contactList.RemoveAt(index);
+                     Console.WriteLine("Contact deleted successfully!!!");
+                     nLog.LogDebug("Debug successful: DeleteContact()");
+                    
                 }
                 else
                 {
