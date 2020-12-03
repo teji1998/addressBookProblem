@@ -6,15 +6,62 @@ namespace addressBookProblem
 {
     class ContactDetails
     {
-        //Variables
-        //get and set method for variables
+       
+        /// <summary>
+        /// Gets or sets the first name.
+        /// </summary>
+        /// <value>
+        /// The first name.
+        /// </value>
         public String firstName { get; set; }
+        /// <summary>
+        /// Gets or sets the last name.
+        /// </summary>
+        /// <value>
+        /// The last name.
+        /// </value>
         public String lastName { get; set; }
+        /// <summary>
+        /// Gets or sets the address.
+        /// </summary>
+        /// <value>
+        /// The address.
+        /// </value>
         public String address { get; set; }
+        /// <summary>
+        /// Gets or sets the city.
+        /// </summary>
+        /// <value>
+        /// The city.
+        /// </value>
         public String city { get; set; }
+        /// <summary>
+        /// Gets or sets the state.
+        /// </summary>
+        /// <value>
+        /// The state.
+        /// </value>
         public String state { get; set; }
+        /// <summary>
+        /// Gets or sets the zip.
+        /// </summary>
+        /// <value>
+        /// The zip.
+        /// </value>
         public String zip { get; set; }
+        /// <summary>
+        /// Gets or sets the phone number.
+        /// </summary>
+        /// <value>
+        /// The phone number.
+        /// </value>
         public String phoneNumber { get; set; }
+        /// <summary>
+        /// Gets or sets the email identifier.
+        /// </summary>
+        /// <value>
+        /// The email identifier.
+        /// </value>
         public String emailId { get; set; }
 
         //Constructor
@@ -41,7 +88,7 @@ namespace addressBookProblem
         override
         public string ToString()
         {
-            return (" First Name : " + firstName + "\nLast Name : " + lastName + "\nAddress : " + address + "\nCity : " + city +
+            return ("First Name : " + firstName + "\nLast Name : " + lastName + "\nAddress : " + address + "\nCity : " + city +
                 "\nState : " + state + "\nZip : " + zip + "\nPhone No : " + phoneNumber + "\nEmail Id : " + emailId );
         }
     }

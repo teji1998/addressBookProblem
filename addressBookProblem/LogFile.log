@@ -87,3 +87,6 @@
 2020-12-04 03:12:50.1650|DEBUG|addressBookProblem.NLog|Debug successful : SearchContact()
 2020-12-04 03:13:03.8976|DEBUG|addressBookProblem.NLog|Debug successful : ViewContactByCityOrState()
 2020-12-04 03:13:18.9050|DEBUG|addressBookProblem.NLog|Debug successful : CountContacts() 
+2020-12-04 03:40:13.2386|DEBUG|addressBookProblem.NLog|Debug successful: AddContact()
+2020-12-04 03:40:28.2887|ERROR|addressBookProblem.NLog|Contact is present!
+2020-12-04 03:40:28.3193|WARN|addressBookProblem.NLog|Use a different first name

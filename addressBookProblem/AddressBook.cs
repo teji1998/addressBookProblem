@@ -344,6 +344,8 @@ namespace addressBookProblem
             if (sortedAddressBook.ContainsKey(firstName))
             {
                 Console.WriteLine("Contact already exists!!!!!\nTry again.");
+                nLog.LogError("Contact is present!");
+                nLog.LogWarn("Use a different first name");
                 return true;
             }
             else
