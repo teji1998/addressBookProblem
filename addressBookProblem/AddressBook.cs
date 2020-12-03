@@ -141,10 +141,10 @@ namespace addressBookProblem
         public void DisplayingMenu()
         {
             Console.WriteLine("Enter your choice ! ");
-            Console.WriteLine("To Add contact                             : please press 1");
-            Console.WriteLine("To Edit contact                            : please press 2");
-            Console.WriteLine("To Delete contact                          : please press 3");
-            Console.WriteLine("To View contact                            : please press 4");
+            Console.WriteLine("To add contact                             : please press 1");
+            Console.WriteLine("To edit contact                            : please press 2");
+            Console.WriteLine("To delete contact                          : please press 3");
+            Console.WriteLine("To view contact                            : please press 4");
             Console.WriteLine("To search contact                          : please press 5");
             Console.WriteLine("To view contact by city or state           : please press 6");
             Console.WriteLine("To get count of contacts by city or state  : please press 7");
@@ -168,7 +168,7 @@ namespace addressBookProblem
 
         public void EditContact()
         {
-            Console.WriteLine("Enter your first name of the contact you want to edit");
+            Console.WriteLine("Enter the first name of the contact you want to edit");
             string userName = Console.ReadLine();
 
             for (int index = 0; index < contactList.Count; index++)
@@ -211,37 +211,39 @@ namespace addressBookProblem
                         contact.lastName = lastName;
                         break;
                     case 3:
-                        Console.WriteLine("Enter address");
+                        Console.WriteLine("Enter the address");
                         string address = Console.ReadLine();
                         contact.address = address;
                         break;
                     case 4:
-                        Console.WriteLine("Enter city");
+                        Console.WriteLine("Enter the city");
                         string city = Console.ReadLine();
                         contact.city = city;
                         break;
                     case 5:
-                        Console.WriteLine("Enter state");
+                        Console.WriteLine("Enter the state");
                         string state = Console.ReadLine();
                         contact.state = state;
                         break;
                     case 6:
-                        Console.WriteLine("Enter Phone Number");
+                        Console.WriteLine("Enter the phone number");
                         string phoneNumber = Console.ReadLine();
                         contact.phoneNumber = phoneNumber;
                         break;
                     case 7:
-                        Console.WriteLine("Enter Zip code");
+                        Console.WriteLine("Enter the zip code");
                         string zipCode = Console.ReadLine();
                         contact.zip = zipCode;
                         break;
                     case 8:
-                        Console.WriteLine("Enter Email");
+                        Console.WriteLine("Enter the email");
                         string email = Console.ReadLine();
                         contact.emailId = email;
                         break;
                     default:
-                        Console.WriteLine("Enter valid choice");
+                        Console.WriteLine("Enter a valid choice");
+                        nLog.LogError("Invalid choice");
+                        nLog.LogWarn("The input should be an integer and valid");
                         break;
 
                 }
@@ -353,6 +355,7 @@ namespace addressBookProblem
                         foreach (ContactDetails contactDetails in contactList.FindAll(cityData => cityData.city.Equals(searchingCity)).ToList())
                         {
                             Console.WriteLine(contactDetails.ToString());
+                            nLog.LogDebug("Debug successful : SearchContact()");
                         }
                         break;
                     case 2:
@@ -361,6 +364,7 @@ namespace addressBookProblem
                         foreach (ContactDetails contactDetails in contactList.FindAll(stateData => stateData.state.Equals(searchingState)).ToList())
                         {
                             Console.WriteLine(contactDetails.ToString());
+                            nLog.LogDebug("Debug successful : SearchContact()");
                         }
                         break;
                 }
@@ -384,7 +388,8 @@ namespace addressBookProblem
                         string requestedCity = Console.ReadLine();
                         var viewCity = cityList.Where(cityData => cityData.Value.Equals(requestedCity));
                         foreach (var data in viewCity)
-                            Console.WriteLine("Firstname:{0} , City:{1}", data.Key, data.Value);
+                            Console.WriteLine("Firstname:{0} , City:{1} ", data.Key, data.Value);
+                        nLog.LogDebug("Debug successful : ViewContactByCityOrState()");
                         break;
                     case 2:
                         Console.WriteLine("Enter state name to view contacts");
@@ -392,6 +397,7 @@ namespace addressBookProblem
                         var viewState = stateList.Where(x => x.Value.Equals(requestedState));
                         foreach (var data in viewState)
                             Console.WriteLine("Firstname:{0} , State:{1}", data.Key, data.Value);
+                        nLog.LogDebug("Debug successful : ViewContactByCityOrState()");
                         break;
                 }
             }
@@ -413,13 +419,15 @@ namespace addressBookProblem
                         Console.WriteLine("Please enter the name of the city to count");
                         string requiredCity = Console.ReadLine();
                         int countUsingCity = contactList.FindAll(data => data.city.Equals(requiredCity)).Count;
-                        Console.WriteLine("Contacts for the city" + requiredCity + " is : " + countUsingCity);
+                        Console.WriteLine("Contacts for the city " + requiredCity + " is : " + countUsingCity);
+                        nLog.LogDebug("Debug successful : CountContacts() ");
                         break;
                     case 2:
                         Console.WriteLine("Please enter the name of the state to count");
                         string requiredState = Console.ReadLine();
                         int countUsingState = contactList.FindAll(data => data.state.Equals(requiredState)).Count;
-                        Console.WriteLine("Contacts for the state" + requiredState + " is : " + countUsingState);
+                        Console.WriteLine("Contacts for the state of " + requiredState + " is : " + countUsingState);
+                        nLog.LogDebug("Debug successful : CountContacts() ");
                         break;
                 }
             }
