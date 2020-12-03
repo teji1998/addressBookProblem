@@ -17,6 +17,7 @@ namespace addressBookProblem
         public string zip;
         public string emailId;
         NLog nLog = new NLog();
+        int duplicateCheck = 0;
 
         // Creating a list to store the contacts 
         List<ContactDetails> contactList;
@@ -319,5 +320,15 @@ namespace addressBookProblem
                 }
             }
         }
+
+        /*public void DuplicateValueCheck(string firstName)
+        {
+            if (sortedAddressBook.ContainsKey(firstName))
+            {
+                Console.WriteLine("Contact already exists in the addressbook!!!\nTry again.");
+
+            }
+
+        }*/
     }
 }
