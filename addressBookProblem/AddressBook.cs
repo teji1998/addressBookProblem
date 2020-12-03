@@ -104,7 +104,8 @@ namespace addressBookProblem
             }
             catch (System.FormatException formatException )
             {
-                Console.WriteLine(formatException.Message);
+                //Console.WriteLine(formatException.Message);
+                throw new AddressBookException("Given input is not valid.Use an integer value");
             }
         }
 
@@ -254,7 +255,8 @@ namespace addressBookProblem
             }
             catch (System.FormatException exception)
             {
-                Console.WriteLine(exception.Message);
+                //Console.WriteLine(exception.Message);
+                throw new AddressBookException("Given input is not valid.Use an integer value");
             }
         }
 
@@ -326,7 +328,8 @@ namespace addressBookProblem
                 }
                 catch (System.FormatException exception ) 
                 {
-                    Console.WriteLine(exception.Message);
+                    //Console.WriteLine(exception.Message);
+                    throw new AddressBookException("Given input is not valid.Use an integer value");
                 }
             }
         }
@@ -382,7 +385,8 @@ namespace addressBookProblem
             }
             catch (System.FormatException formatException)
             {
-                Console.WriteLine(formatException.Message);
+                //Console.WriteLine(formatException.Message);
+                throw new AddressBookException("Given input is not valid.Use an integer value");
             }
         }
 
@@ -417,7 +421,8 @@ namespace addressBookProblem
             }
             catch (System.FormatException exception)
             {
-                Console.WriteLine(exception.Message);
+                //Console.WriteLine(exception.Message);
+                throw new AddressBookException("Given input is not valid.Use an integer value");
             }
         }
 
@@ -450,7 +455,8 @@ namespace addressBookProblem
             }
             catch (System.FormatException exception)
             {
-                Console.WriteLine(exception.Message);
+                //Console.WriteLine(exception.Message);
+                throw new AddressBookException("Given input is not valid.Use an integer value");
             }
         }
     }
