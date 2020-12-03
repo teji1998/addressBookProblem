@@ -25,6 +25,13 @@ namespace addressBookProblem
         //Creating a dictionary to store the addressbooks
         Dictionary<String, List<ContactDetails>> sortedAddressBook = new Dictionary<String, List<ContactDetails>>();
 
+        //Creating a dictionary to store the cities
+        Dictionary<string, string> cityList = new Dictionary<string, string>();
+
+        //Creating a dictionary to store the states
+        Dictionary<string, string> stateList = new Dictionary<string, string>();
+
+
         /// <summary>
         /// Initializes a new instance of the <see cref="AddressBook"/> class.
         /// </summary>
@@ -38,18 +45,18 @@ namespace addressBookProblem
         String ZIP = "^[1-9]{1}[0-9]{5}$";
 
         //Validating the contact in addressbook
-        public void validatingContact(String firstName, String lastName, String phoneNumber, String zip)
+        public void ValidatingContact(String firstName, String lastName, String phoneNumber, String zip)
         {
             if ( Regex.IsMatch(firstName, NAME) && (Regex.IsMatch(lastName, NAME)) && (Regex.IsMatch(phoneNumber, PHONENUMBER)) && (Regex.IsMatch(zip, ZIP)))
             {
 
                 contactList.Add(new ContactDetails(firstName, lastName, address, city, state, phoneNumber, zip, emailId));
                 sortedAddressBook.Add(firstName, contactList);
+                cityList.Add(firstName, city);
+                stateList.Add(firstName, state);
                 contactList.ForEach(Console.WriteLine);
-
                 Console.WriteLine("Contact Added Successfully!!!!!");
                 nLog.LogDebug("Debug successful: AddContact()");
-
             }
             else
             {
@@ -91,7 +98,7 @@ namespace addressBookProblem
                         phoneNumber = Console.ReadLine();
                         Console.WriteLine("Enter the email");
                         emailId = Console.ReadLine();
-                        validatingContact(firstName, lastName, phoneNumber, zip);
+                        ValidatingContact(firstName, lastName, phoneNumber, zip);
                     }
                 }
             }
@@ -134,12 +141,13 @@ namespace addressBookProblem
         public void DisplayingMenu()
         {
             Console.WriteLine("Enter your choice ! ");
-            Console.WriteLine("To Add contact     : please press 1");
-            Console.WriteLine("To Edit contact    : please press 2");
-            Console.WriteLine("To Delete contact  : please press 3");
-            Console.WriteLine("To View contact    : please press 4");
-            Console.WriteLine("To search contact  : please press 5");
-            Console.WriteLine("To exit            : please press any number after 5");
+            Console.WriteLine("To Add contact                    : please press 1");
+            Console.WriteLine("To Edit contact                   : please press 2");
+            Console.WriteLine("To Delete contact                 : please press 3");
+            Console.WriteLine("To View contact                   : please press 4");
+            Console.WriteLine("To search contact                 : please press 5");
+            Console.WriteLine("To view contact by city or state  : please press 6");
+            Console.WriteLine("To exit                           : please press any number after 6");
         }
 
         /// <summary>
@@ -301,6 +309,9 @@ namespace addressBookProblem
                         case 5:
                             SearchContact();
                             break;
+                        case 6:
+                            ViewContactByCityOrState();
+                            break;
                         default:
                             flag = false;
                             break;
@@ -328,7 +339,7 @@ namespace addressBookProblem
 
         public void SearchContact()
         {
-            Console.WriteLine("To search from city  : please press 1 \n To search from state : please press 2 ");
+            Console.WriteLine("To search from city  : please press 1 \nTo search from state : please press 2 ");
             try
             {
                 int option = Convert.ToInt32(Console.ReadLine());
@@ -355,6 +366,36 @@ namespace addressBookProblem
             catch (System.FormatException formatException)
             {
                 Console.WriteLine(formatException.Message);
+            }
+        }
+
+        public void ViewContactByCityOrState()
+        {
+            Console.WriteLine("To view by city  : please press 1 \nTo view by state : please press 2 ");
+            try
+            {
+                int option = Convert.ToInt32(Console.ReadLine());
+                switch (option)
+                {
+                    case 1:
+                        Console.WriteLine("Enter city name to view contacts");
+                        string requestedCity = Console.ReadLine();
+                        var viewCity = cityList.Where(cityData => cityData.Value.Equals(requestedCity));
+                        foreach (var data in viewCity)
+                            Console.WriteLine("Firstname:{0} , City:{1}", data.Key, data.Value);
+                        break;
+                    case 2:
+                        Console.WriteLine("Enter state name to view contacts");
+                        string requestedState = Console.ReadLine();
+                        var viewState = stateList.Where(x => x.Value.Equals(requestedState));
+                        foreach (var data in viewState)
+                            Console.WriteLine("Firstname:{0} , State:{1}", data.Key, data.Value);
+                        break;
+                }
+            }
+            catch (System.FormatException)
+            {
+                throw new AddressBookException("Please enter correct input");
             }
         }
     }
