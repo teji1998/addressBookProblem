@@ -40,8 +40,8 @@ namespace addressBookProblem
         override
         public string ToString()
         {
-            return (" First Name : " + firstName + " Last Name : " + lastName + " Address : " + address + " City : " + city +
-                " State : " + state + " Zip : " + zip + " Phone No : " + phoneNumber + " Email Id : " + emailId );
+            return (" First Name : " + firstName + "\nLast Name : " + lastName + "\nAddress : " + address + "\nCity : " + city +
+                "\nState : " + state + "\nZip : " + zip + "\nPhone No : " + phoneNumber + "\nEmail Id : " + emailId );
         }
     }
 }
