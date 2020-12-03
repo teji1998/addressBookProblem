@@ -50,3 +50,28 @@
 2020-12-04 01:42:44.9833|DEBUG|addressBookProblem.NLog|Debug successful: AddContact()
 2020-12-04 01:43:37.9649|DEBUG|addressBookProblem.NLog|Debug successful: AddContact()
 2020-12-04 01:43:46.8962|DEBUG|addressBookProblem.NLog|Debug successful: ViewContact()
+2020-12-04 02:22:42.8305|DEBUG|addressBookProblem.NLog|Debug successful: AddContact()
+2020-12-04 02:23:25.2653|ERROR|addressBookProblem.NLog|Invalid input
+2020-12-04 02:23:25.3558|WARN|addressBookProblem.NLog|Give valid data
+2020-12-04 02:23:51.7710|DEBUG|addressBookProblem.NLog|Debug successful: AddContact()
+2020-12-04 02:24:31.6167|DEBUG|addressBookProblem.NLog|Debug successful: AddContact()
+2020-12-04 02:25:29.7968|DEBUG|addressBookProblem.NLog|Debug successful: EditContact()
+2020-12-04 02:25:29.8204|ERROR|addressBookProblem.NLog|First name is not existing
+2020-12-04 02:25:29.8954|WARN|addressBookProblem.NLog|First name should be correct
+2020-12-04 02:25:29.9246|ERROR|addressBookProblem.NLog|First name is not existing
+2020-12-04 02:25:29.9645|WARN|addressBookProblem.NLog|First name should be correct
+2020-12-04 02:25:54.6850|ERROR|addressBookProblem.NLog|First name is not existing
+2020-12-04 02:25:54.7105|WARN|addressBookProblem.NLog|First name should be correct
+2020-12-04 02:25:54.7365|ERROR|addressBookProblem.NLog|First name is not existing
+2020-12-04 02:25:54.8224|WARN|addressBookProblem.NLog|First name should be correct
+2020-12-04 02:25:54.8543|ERROR|addressBookProblem.NLog|First name is not existing
+2020-12-04 02:25:54.8818|WARN|addressBookProblem.NLog|First name should be correct
+2020-12-04 02:26:26.1309|DEBUG|addressBookProblem.NLog|Debug successful: EditContact()
+2020-12-04 02:26:26.1534|ERROR|addressBookProblem.NLog|First name is not existing
+2020-12-04 02:26:26.1860|WARN|addressBookProblem.NLog|First name should be correct
+2020-12-04 02:26:26.2262|ERROR|addressBookProblem.NLog|First name is not existing
+2020-12-04 02:26:26.2587|WARN|addressBookProblem.NLog|First name should be correct
+2020-12-04 02:26:41.1766|ERROR|addressBookProblem.NLog|Contact is not existing
+2020-12-04 02:26:41.1981|ERROR|addressBookProblem.NLog|Give proper input
+2020-12-04 02:26:41.2885|DEBUG|addressBookProblem.NLog|Debug successful: DeleteContact()
+2020-12-04 02:27:40.1886|DEBUG|addressBookProblem.NLog|Debug successful: ViewContact()

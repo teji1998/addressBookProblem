@@ -141,13 +141,14 @@ namespace addressBookProblem
         public void DisplayingMenu()
         {
             Console.WriteLine("Enter your choice ! ");
-            Console.WriteLine("To Add contact                    : please press 1");
-            Console.WriteLine("To Edit contact                   : please press 2");
-            Console.WriteLine("To Delete contact                 : please press 3");
-            Console.WriteLine("To View contact                   : please press 4");
-            Console.WriteLine("To search contact                 : please press 5");
-            Console.WriteLine("To view contact by city or state  : please press 6");
-            Console.WriteLine("To exit                           : please press any number after 6");
+            Console.WriteLine("To Add contact                             : please press 1");
+            Console.WriteLine("To Edit contact                            : please press 2");
+            Console.WriteLine("To Delete contact                          : please press 3");
+            Console.WriteLine("To View contact                            : please press 4");
+            Console.WriteLine("To search contact                          : please press 5");
+            Console.WriteLine("To view contact by city or state           : please press 6");
+            Console.WriteLine("To get count of contacts by city or state  : please press 7");
+            Console.WriteLine("To exit                                    : please press any number after 7");
         }
 
         /// <summary>
@@ -312,6 +313,9 @@ namespace addressBookProblem
                         case 6:
                             ViewContactByCityOrState();
                             break;
+                        case 7:
+                            CountContacts();
+                            break;
                         default:
                             flag = false;
                             break;
@@ -393,9 +397,37 @@ namespace addressBookProblem
                         break;
                 }
             }
-            catch (System.FormatException)
+            catch (System.FormatException exception)
             {
-                throw new AddressBookException("Please enter correct input");
+                Console.WriteLine(exception.Message);
+            }
+        }
+
+        public void CountContacts()
+        {
+            Console.WriteLine("To count by city  : please press 1 \nTo count by state : please press 2 ");
+            try
+            {
+                int option = Convert.ToInt32(Console.ReadLine());
+                switch (option)
+                {
+                    case 1:
+                        Console.WriteLine("Please enter the name of the city to count");
+                        string requiredCity = Console.ReadLine();
+                        int countUsingCity = contactList.FindAll(data => data.city.Equals(requiredCity)).Count;
+                        Console.WriteLine("Contacts for the city" + requiredCity + " is : " + countUsingCity);
+                        break;
+                    case 2:
+                        Console.WriteLine("Please enter the name of the state to count");
+                        string requiredState = Console.ReadLine();
+                        int countUsingState = contactList.FindAll(data => data.state.Equals(requiredState)).Count;
+                        Console.WriteLine("Contacts for the state" + requiredState + " is : " + countUsingState);
+                        break;
+                }
+            }
+            catch (System.FormatException exception)
+            {
+                Console.WriteLine(exception.Message);
             }
         }
     }
