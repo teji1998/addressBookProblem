@@ -9,8 +9,8 @@ namespace addressBookProblem
             //Welcome message
             Console.WriteLine("Welcome to the address book problem !");
 
-            //To add contact into addressbook
-            Console.WriteLine("Add the contact detailsin addressbook !");
+            //To perform various operations in addressbook
+            Console.WriteLine("Add the contact details in addressbook !");
             AddressBook addressBook = new AddressBook();
             addressBook.AddressBookMenu();
 

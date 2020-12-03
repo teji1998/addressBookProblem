@@ -108,6 +108,9 @@ namespace addressBookProblem
             }
         }
 
+        /// <summary>
+        /// To view all the contacts.
+        /// </summary>
         public void ViewContact()
         {
             ///Checks for the length of List
@@ -328,6 +331,11 @@ namespace addressBookProblem
             }
         }
 
+        /// <summary>
+        /// Checks for duplicate value.
+        /// </summary>
+        /// <param name="firstName">The first name.</param>
+        /// <returns></returns>
         public bool DuplicateValueCheck(string firstName)
         {
             if (sortedAddressBook.ContainsKey(firstName))
@@ -341,6 +349,9 @@ namespace addressBookProblem
             }
         }
 
+        /// <summary>
+        /// Searches the contact.
+        /// </summary>
         public void SearchContact()
         {
             Console.WriteLine("To search from city  : please press 1 \nTo search from state : please press 2 ");
@@ -375,6 +386,9 @@ namespace addressBookProblem
             }
         }
 
+        /// <summary>
+        /// Viewing contact by city or by state
+        /// </summary>
         public void ViewContactByCityOrState()
         {
             Console.WriteLine("To view by city  : please press 1 \nTo view by state : please press 2 ");
@@ -407,6 +421,9 @@ namespace addressBookProblem
             }
         }
 
+        /// <summary>
+        /// Counts the number of contacts
+        /// </summary>
         public void CountContacts()
         {
             Console.WriteLine("To count by city  : please press 1 \nTo count by state : please press 2 ");

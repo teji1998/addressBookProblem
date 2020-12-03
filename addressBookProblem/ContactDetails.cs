@@ -7,6 +7,7 @@ namespace addressBookProblem
     class ContactDetails
     {
         //Variables
+        //get and set method for variables
         public String firstName { get; set; }
         public String lastName { get; set; }
         public String address { get; set; }

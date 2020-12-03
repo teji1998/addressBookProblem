@@ -10,5 +10,8 @@ namespace addressBookProblem
         public void DeleteContact();
         public void EditContact();
         public void ViewContact();
+        public void SearchContact();
+        public void CountContacts();
+        public void ViewContactByCityOrState();
     }
 }
