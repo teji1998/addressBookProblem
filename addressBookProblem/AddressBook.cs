@@ -17,7 +17,6 @@ namespace addressBookProblem
         public string zip;
         public string emailId;
         NLog nLog = new NLog();
-        int duplicateCheck = 0;
 
         // Creating a list to store the contacts 
         List<ContactDetails> contactList;
@@ -44,7 +43,7 @@ namespace addressBookProblem
         //Validating the contact in addressbook
         public void validatingContact(String firstName, String lastName, String phoneNumber, String zip)
         {
-            if (Regex.IsMatch(firstName, NAME) && (Regex.IsMatch(lastName, NAME)) && (Regex.IsMatch(phoneNumber, PHONENUMBER)) && (Regex.IsMatch(zip, ZIP)))
+            if ( Regex.IsMatch(firstName, NAME) && (Regex.IsMatch(lastName, NAME)) && (Regex.IsMatch(phoneNumber, PHONENUMBER)) && (Regex.IsMatch(zip, ZIP)))
             {
 
                 contactList.Add(new ContactDetails(firstName, lastName, address, city, state, phoneNumber, zip, emailId));
@@ -71,35 +70,44 @@ namespace addressBookProblem
             try
             {
                 Console.WriteLine("please enter number of persons to be added");
-                int noOfPersons = Convert.ToInt32(Console.ReadLine());
-                for (int i = 1; i <= noOfPersons; i++)
+                int numberOfPersons = Convert.ToInt32(Console.ReadLine());
+                for (int i = 1; i <= numberOfPersons; i++)
                 {
                     Console.WriteLine("Enter the first name");
                     firstName = Console.ReadLine();
-                    Console.WriteLine("Enter the last name");
-                    lastName = Console.ReadLine();
-                    Console.WriteLine("Enter the address");
-                    address = Console.ReadLine();
-                    Console.WriteLine("Enter the city");
-                    city = Console.ReadLine();
-                    Console.WriteLine("Enter the state");
-                    state = Console.ReadLine();
-                    Console.WriteLine("Enter the zip code");
-                    zip = Console.ReadLine();
-                    Console.WriteLine("Enter the phone number");
-                    phoneNumber = Console.ReadLine();
-                    Console.WriteLine("Enter the email");
-                    emailId = Console.ReadLine();
-                    validatingContact(firstName, lastName, phoneNumber, zip);
+                    if (DuplicateValueCheck(firstName))
+                    {
+                        AddContact();
+                    }
+                    else {
+                        Console.WriteLine("Enter the last name");
+                        lastName = Console.ReadLine();
+                        Console.WriteLine("Enter the address");
+                        address = Console.ReadLine();
+                        Console.WriteLine("Enter the city");
+                        city = Console.ReadLine();
+                        Console.WriteLine("Enter the state");
+                        state = Console.ReadLine();
+                        Console.WriteLine("Enter the zip code");
+                        zip = Console.ReadLine();
+                        Console.WriteLine("Enter the phone number");
+                        phoneNumber = Console.ReadLine();
+                        Console.WriteLine("Enter the email");
+                        emailId = Console.ReadLine();
+                        validatingContact(firstName, lastName, phoneNumber, zip);
+                    }
+                    
 
-                }
+                 }
+                      
 
             }
-            catch (System.FormatException addressException)
+            catch (System.FormatException formatException )
             {
-                throw new AddressBookException(addressException.Message);
+                Console.WriteLine(formatException.Message);
+              
             }
-
+            
         }
 
         public void ViewContact()
@@ -238,14 +246,14 @@ namespace addressBookProblem
 
                 }
                 Console.WriteLine(contact);
-            }catch(System.FormatException formatException)
-            {
-                Console.WriteLine(formatException.Message);
-            }
-            catch (AddressBookException exception)
+            }catch(System.FormatException exception )
             {
                 Console.WriteLine(exception.Message);
+
             }
+
+           
+          
 
         }
 
@@ -308,27 +316,32 @@ namespace addressBookProblem
                             flag = false;
                             break;
                     }
-                }catch(System.FormatException exception)
-                {
+                }
+                catch (System.FormatException exception ) {
+
+
                     Console.WriteLine(exception.Message);
-                }
-
-                catch (AddressBookException addressBookException)
-                {
-                    Console.WriteLine(addressBookException.Message);
 
                 }
+
             }
         }
 
-        /*public void DuplicateValueCheck(string firstName)
+        public bool DuplicateValueCheck(string firstName)
         {
             if (sortedAddressBook.ContainsKey(firstName))
             {
-                Console.WriteLine("Contact already exists in the addressbook!!!\nTry again.");
-
+                Console.WriteLine("Contact already exists!!!!!\nTry again.");
+               
+                return true;
+                
             }
+            else
+            {
+                return false;
+            }
+            
 
-        }*/
+        }
     }
 }
