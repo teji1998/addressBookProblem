@@ -24,8 +24,6 @@ namespace addressBookProblem
         //Creating a dictionary to store the addressbooks
         Dictionary<String, List<ContactDetails>> sortedAddressBook = new Dictionary<String, List<ContactDetails>>();
 
-
-
         /// <summary>
         /// Initializes a new instance of the <see cref="AddressBook"/> class.
         /// </summary>
@@ -33,8 +31,6 @@ namespace addressBookProblem
         {
             contactList = new List<ContactDetails>();
         }
-
-
 
         String NAME = "^[a-zA-Z]{3,}$";
         String PHONENUMBER = "^[1-9]{1}[0-9]{9}$";
@@ -96,18 +92,12 @@ namespace addressBookProblem
                         emailId = Console.ReadLine();
                         validatingContact(firstName, lastName, phoneNumber, zip);
                     }
-                    
-
-                 }
-                      
-
+                }
             }
             catch (System.FormatException formatException )
             {
                 Console.WriteLine(formatException.Message);
-              
             }
-            
         }
 
         public void ViewContact()
@@ -128,7 +118,6 @@ namespace addressBookProblem
                     Console.WriteLine("Zip             :       " + contactList[index].zip);
                     Console.WriteLine("Email           :       " + contactList[index].emailId);
                     Console.WriteLine("/************************************************************/");
-
                 }
                 nLog.LogDebug("Debug successful: ViewContact()");
             }
@@ -246,15 +235,11 @@ namespace addressBookProblem
 
                 }
                 Console.WriteLine(contact);
-            }catch(System.FormatException exception )
+            }
+            catch (System.FormatException exception)
             {
                 Console.WriteLine(exception.Message);
-
             }
-
-           
-          
-
         }
 
         ////// <summary>
@@ -317,13 +302,10 @@ namespace addressBookProblem
                             break;
                     }
                 }
-                catch (System.FormatException exception ) {
-
-
+                catch (System.FormatException exception ) 
+                {
                     Console.WriteLine(exception.Message);
-
                 }
-
             }
         }
 
@@ -332,16 +314,12 @@ namespace addressBookProblem
             if (sortedAddressBook.ContainsKey(firstName))
             {
                 Console.WriteLine("Contact already exists!!!!!\nTry again.");
-               
                 return true;
-                
             }
             else
             {
                 return false;
             }
-            
-
         }
     }
 }
