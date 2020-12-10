@@ -166,7 +166,8 @@ namespace addressBookProblem
             Console.WriteLine("To view contact by city or state           : please press 6");
             Console.WriteLine("To get count of contacts by city or state  : please press 7");
             Console.WriteLine("To sort the contact by name                : please press 8");
-            Console.WriteLine("To exit                                    : please press any number after 8");
+            Console.WriteLine("To sort by state or city or zip            : please press 9");
+            Console.WriteLine("To exit                                    : please press any number after 9");
         }
 
         /// <summary>
@@ -342,6 +343,9 @@ namespace addressBookProblem
                         case 8:
                             SortingByName();
                             break;
+                        case 9:
+                            SortByCityStateOrZip();
+                            break;
                         default:
                             flag = false;
                             break;
@@ -501,6 +505,9 @@ namespace addressBookProblem
             }
         }
 
+        /// <summary>
+        /// Sorting the contacts by name in alphabetical order
+        /// </summary>
         public void SortingByName()
         {
             var result = contactList.OrderBy(name => name.firstName);
@@ -508,6 +515,38 @@ namespace addressBookProblem
             {
                 Console.WriteLine(sortedName.ToString());
 
+            }
+        }
+
+        /// <summary>
+        /// To sort contacts by city,state or zip
+        /// </summary>
+        public void SortByCityStateOrZip()
+        {
+            Console.WriteLine("To sort by city    : press 1");
+            Console.WriteLine("To sort by state   : press 2");
+            Console.WriteLine("To sort by zip     : press 3");
+            int choice = Convert.ToInt32(Console.ReadLine());
+            switch (choice)
+            {
+                case 1:
+                    var cityResult = contactList.OrderBy(data => data.city);
+                    foreach (var sortByCity in cityResult)
+                        Console.WriteLine(sortByCity.ToString());
+                    break;
+                case 2:
+                    var stateResult = contactList.OrderBy(data => data.state);
+                    foreach (var sortByState in stateResult)
+                        Console.WriteLine(sortByState.ToString());
+                    break;
+                case 3:
+                    var zipResult = contactList.OrderBy(data => data.zip);
+                    foreach (var sortByZip in zipResult)
+                        Console.WriteLine(sortByZip.ToString());
+                    break;
+                default:
+                    Console.WriteLine("Please enter correct option");
+                    break;
             }
         }
     }
