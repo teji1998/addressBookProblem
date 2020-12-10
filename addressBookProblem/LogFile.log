@@ -90,3 +90,14 @@
 2020-12-04 03:40:13.2386|DEBUG|addressBookProblem.NLog|Debug successful: AddContact()
 2020-12-04 03:40:28.2887|ERROR|addressBookProblem.NLog|Contact is present!
 2020-12-04 03:40:28.3193|WARN|addressBookProblem.NLog|Use a different first name
+2020-12-04 10:57:30.8166|DEBUG|addressBookProblem.NLog|Debug successful: AddContact()
+2020-12-04 11:01:39.0841|DEBUG|addressBookProblem.NLog|Debug successful: EditContact()
+2020-12-04 11:01:44.7075|DEBUG|addressBookProblem.NLog|Debug successful: ViewContact()
+2020-12-04 11:02:04.9766|DEBUG|addressBookProblem.NLog|Debug successful : SearchContact()
+2020-12-04 11:02:20.5993|DEBUG|addressBookProblem.NLog|Debug successful : SearchContact()
+2020-12-04 11:03:31.2143|DEBUG|addressBookProblem.NLog|Debug successful : CountContacts() 
+2020-12-04 11:03:47.3724|DEBUG|addressBookProblem.NLog|Debug successful : CountContacts() 
+2020-12-04 11:22:59.5033|DEBUG|addressBookProblem.NLog|Debug successful: AddContact()
+2020-12-04 11:25:49.6864|DEBUG|addressBookProblem.NLog|Debug successful: ViewContact()
+2020-12-04 11:26:09.3739|DEBUG|addressBookProblem.NLog|Debug successful : SearchContact()
+2020-12-04 11:26:35.1341|DEBUG|addressBookProblem.NLog|Debug successful : ViewContactByCityOrState()
