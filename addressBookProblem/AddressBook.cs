@@ -156,7 +156,8 @@ namespace addressBookProblem
             Console.WriteLine("To search contact                          : please press 5");
             Console.WriteLine("To view contact by city or state           : please press 6");
             Console.WriteLine("To get count of contacts by city or state  : please press 7");
-            Console.WriteLine("To exit                                    : please press any number after 7");
+            Console.WriteLine("To sort the contact by name                : please press 8");
+            Console.WriteLine("To exit                                    : please press any number after 8");
         }
 
         /// <summary>
@@ -329,6 +330,9 @@ namespace addressBookProblem
                         case 7:
                             CountContacts();
                             break;
+                        case 8:
+                            SortingByName();
+                            break;
                         default:
                             flag = false;
                             break;
@@ -485,6 +489,16 @@ namespace addressBookProblem
             } catch
             {
                 throw new AddressBookException("Given input is not valid.Use an integer value");
+            }
+        }
+
+        public void SortingByName()
+        {
+            var result = contactList.OrderBy(name => name.firstName);
+            foreach (var sortedName in result)
+            {
+                Console.WriteLine(sortedName.ToString());
+
             }
         }
     }
