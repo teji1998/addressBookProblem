@@ -105,6 +105,10 @@ namespace addressBookProblem
             catch (System.FormatException formatException )
             {
                 //Console.WriteLine(formatException.Message);
+                throw formatException;
+                
+            }catch (AddressBookException)
+            {
                 throw new AddressBookException("Given input is not valid.Use an integer value");
             }
         }
@@ -256,6 +260,10 @@ namespace addressBookProblem
             catch (System.FormatException exception)
             {
                 //Console.WriteLine(exception.Message);
+                throw exception;
+               
+            }catch (AddressBookException)
+            {
                 throw new AddressBookException("Given input is not valid.Use an integer value");
             }
         }
@@ -329,6 +337,11 @@ namespace addressBookProblem
                 catch (System.FormatException exception ) 
                 {
                     //Console.WriteLine(exception.Message);
+                    throw exception;
+                    
+                }
+                catch (AddressBookException)
+                {
                     throw new AddressBookException("Given input is not valid.Use an integer value");
                 }
             }
@@ -387,7 +400,11 @@ namespace addressBookProblem
             }
             catch (System.FormatException formatException)
             {
-                //Console.WriteLine(formatException.Message);
+                throw formatException;
+                //Console.WriteLine(formatException.Message);    
+            }
+            catch(AddressBookException)
+            {
                 throw new AddressBookException("Given input is not valid.Use an integer value");
             }
         }
@@ -424,6 +441,11 @@ namespace addressBookProblem
             catch (System.FormatException exception)
             {
                 //Console.WriteLine(exception.Message);
+                throw exception;
+               
+            }
+            catch(AddressBookException)
+            {
                 throw new AddressBookException("Given input is not valid.Use an integer value");
             }
         }
@@ -457,7 +479,11 @@ namespace addressBookProblem
             }
             catch (System.FormatException exception)
             {
+                throw exception;
                 //Console.WriteLine(exception.Message);
+                
+            } catch
+            {
                 throw new AddressBookException("Given input is not valid.Use an integer value");
             }
         }
