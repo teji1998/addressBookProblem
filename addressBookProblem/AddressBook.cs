@@ -18,6 +18,7 @@ namespace addressBookProblem
         public string zip;
         public string emailId;
         NLog nLog = new NLog();
+        bool option = true;
 
         // Creating a list to store the contacts 
         List<ContactDetails> contactList;
@@ -71,46 +72,54 @@ namespace addressBookProblem
         /// </summary>
         public void AddContact()
         {
-            try
+            option = true;
+            while (option)
             {
-                Console.WriteLine("please enter number of persons to be added");
-                int numberOfPersons = Convert.ToInt32(Console.ReadLine());
-                for (int i = 1; i <= numberOfPersons; i++)
+                try
+                {   
+                   Console.WriteLine("Enter the first name");
+                   firstName = Console.ReadLine();
+                   if (DuplicateValueCheck(firstName))
+                   {
+                       AddContact();
+                   }
+                   else
+                   {
+                       Console.WriteLine("Enter the last name");
+                       lastName = Console.ReadLine();
+                       Console.WriteLine("Enter the address");
+                       address = Console.ReadLine();
+                       Console.WriteLine("Enter the city");
+                       city = Console.ReadLine();
+                       Console.WriteLine("Enter the state");
+                       state = Console.ReadLine();
+                       Console.WriteLine("Enter the zip code");
+                       zip = Console.ReadLine();
+                       Console.WriteLine("Enter the phone number");
+                       phoneNumber = Console.ReadLine();
+                       Console.WriteLine("Enter the email");
+                       emailId = Console.ReadLine();
+                       ValidatingContact(firstName, lastName, phoneNumber, zip);
+                       Console.WriteLine("\nIf you want to add more people in the addressbook press 1");
+                       int choice = Convert.ToInt32(Console.ReadLine());
+                       if (choice == 1)
+                          AddContact();
+                       else
+                           option = false;
+                       }
+                }
+                catch (System.FormatException formatException)
                 {
-                    Console.WriteLine("Enter the first name");
-                    firstName = Console.ReadLine();
-                    if (DuplicateValueCheck(firstName))
-                    {
-                        AddContact();
-                    }
-                    else {
-                        Console.WriteLine("Enter the last name");
-                        lastName = Console.ReadLine();
-                        Console.WriteLine("Enter the address");
-                        address = Console.ReadLine();
-                        Console.WriteLine("Enter the city");
-                        city = Console.ReadLine();
-                        Console.WriteLine("Enter the state");
-                        state = Console.ReadLine();
-                        Console.WriteLine("Enter the zip code");
-                        zip = Console.ReadLine();
-                        Console.WriteLine("Enter the phone number");
-                        phoneNumber = Console.ReadLine();
-                        Console.WriteLine("Enter the email");
-                        emailId = Console.ReadLine();
-                        ValidatingContact(firstName, lastName, phoneNumber, zip);
-                    }
+                    //Console.WriteLine(formatException.Message);
+                    throw formatException;
+
+                }
+                catch (AddressBookException)
+                {
+                    throw new AddressBookException("Given input is not valid.Use an integer value");
                 }
             }
-            catch (System.FormatException formatException )
-            {
-                //Console.WriteLine(formatException.Message);
-                throw formatException;
-                
-            }catch (AddressBookException)
-            {
-                throw new AddressBookException("Given input is not valid.Use an integer value");
-            }
+                     
         }
 
         /// <summary>
