@@ -11,7 +11,11 @@ namespace addressBookProblem
 {
     class FileOperations
     {
-
+        /// <summary>
+        /// Reading from text file.
+        /// </summary>
+        /// <param name="Filename">The filename.</param>
+        /// <returns></returns>
         public List<ContactDetails> ReadTxt(string Filename)
         {
             string path = "C:\\Users\\PRITHVIL5\\source\\repos\\addressBookProblem\\addressBookProblem\\" + Filename;
@@ -31,6 +35,12 @@ namespace addressBookProblem
             reader.Close();
             return contact;
         }
+
+        /// <summary>
+        /// Writing into text file.
+        /// </summary>
+        /// <param name="filename">The filename.</param>
+        /// <param name="addressbook">The addressbook.</param>
         public void WriteText(string filename, List<ContactDetails> addressbook)
         {
             string path = "C:\\Users\\PRITHVIL5\\source\\repos\\addressBookProblem\\addressBookProblem\\" +filename;
@@ -48,6 +58,11 @@ namespace addressBookProblem
             writer.Close();
         }
 
+        /// <summary>
+        /// Writes into json file.
+        /// </summary>
+        /// <param name="filename">The filename.</param>
+        /// <param name="person">The person.</param>
         public void WriteToJson(string filename, List<ContactDetails> person)
         {
             string path = "C:\\Users\\PRITHVIL5\\source\\repos\\addressBookProblem\\addressBookProblem\\" + filename;
@@ -55,6 +70,11 @@ namespace addressBookProblem
             File.WriteAllText(path, json);
         }
 
+        /// <summary>
+        /// Reads from json file.
+        /// </summary>
+        /// <param name="filename">The filename.</param>
+        /// <returns></returns>
         public List<ContactDetails> ReadFromJson(string filename)
         {
             string path = "C:\\Users\\PRITHVIL5\\source\\repos\\addressBookProblem\\addressBookProblem\\" + filename;
@@ -63,6 +83,9 @@ namespace addressBookProblem
             return person;
         }
 
+        /// <summary>
+        /// Shows the files for all the specified extensions.
+        /// </summary>
         public void ShowFiles()
         {
             string path = "C:\\Users\\PRITHVIL5\\source\\repos\\addressBookProblem\\addressBookProblem\\";
@@ -84,7 +107,7 @@ namespace addressBookProblem
         }
 
         /// <summary>
-        /// Writes the CSV.
+        ///Writing into CSV File.
         /// </summary>
         /// <param name="filename">The filename.</param>
         /// <param name="list">The list.</param>
@@ -106,7 +129,7 @@ namespace addressBookProblem
         }
 
         /// <summary>
-        /// Reads the CSV.
+        /// Reading from CSV File
         /// </summary>
         /// <param name="Filename">The filename.</param>
         /// <returns></returns>
