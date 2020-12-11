@@ -21,13 +21,16 @@ namespace addressBookProblem
         bool option = true;
         List<ContactDetails> cityData = new List<ContactDetails>();
 
-        FileOperations ops = new FileOperations(); 
+        FileOperations ops = new FileOperations();
+
+        public string cityFile = "City.txt";
+        public string stateFile = "State.txt";
 
         // Creating a list to store the contacts 
         List<ContactDetails> contactList;
 
         //Creating a dictionary to store the addressbooks
-        Dictionary<String, List<ContactDetails>> sortedAddressBook = new Dictionary<String, List<ContactDetails>>();
+       // Dictionary<String, List<ContactDetails>> sortedAddressBook = new Dictionary<String, List<ContactDetails>>();
 
         //Creating a dictionary to store the cities
         Dictionary<string, string> cityList = new Dictionary<string, string>();
@@ -36,6 +39,15 @@ namespace addressBookProblem
         Dictionary<string, string> stateList = new Dictionary<string, string>();
 
 
+        public void SortByNameUsingCsv(string filename)
+        {
+            contactList = ops.ReadCsv(filename);
+            var result = contactList.OrderBy(x => x.firstName);
+            foreach (var sortPerson in result)
+            {
+                Console.WriteLine(sortPerson.ToString());
+            }
+        }
         /// <summary>
         /// Initializes a new instance of the <see cref="AddressBook"/> class.
         /// </summary>
@@ -53,14 +65,17 @@ namespace addressBookProblem
         {
             if ( Regex.IsMatch(firstName, NAME) && (Regex.IsMatch(lastName, NAME)) && (Regex.IsMatch(phoneNumber, PHONENUMBER)) && (Regex.IsMatch(zip, ZIP)))
             {
-                cityData = ops.cityTxt("City.txt");
                 contactList.Add(new ContactDetails(firstName, lastName, address, city, state, phoneNumber, zip, emailId));
-                sortedAddressBook.Add(firstName, contactList);
-                cityList.Add(firstName, city);
-                stateList.Add(firstName, state);
                 contactList.ForEach(Console.WriteLine);
                 Console.WriteLine("Contact Added Successfully!!!!!");
                 nLog.LogDebug("Debug successful: AddContact()");
+                //cityList = ops.ReadFromTextToDictionary(cityFile);
+                //stateList = ops.ReadFromTextToDictionary(stateFile);
+                cityList.Add(firstName, city);
+                stateList.Add(firstName, state);
+               
+                //ops.WriteDictionaryToText(cityFile, cityList);
+                //ops.WriteDictionaryToText(stateFile, stateList);
             }
             else
             {
@@ -105,6 +120,7 @@ namespace addressBookProblem
                        Console.WriteLine("Enter the email");
                        emailId = Console.ReadLine();
                        ValidatingContact(firstName, lastName, phoneNumber, zip);
+                       ops.writeCsv(filename, contactList);
                        Console.WriteLine("\nIf you want to add more people in the addressbook press 1");
                        int choice = Convert.ToInt32(Console.ReadLine());
                        if (choice == 1)
@@ -163,10 +179,7 @@ namespace addressBookProblem
         //Gives the display menu
         public void DisplayingMenu()
         {
-            Console.WriteLine("Showing list of files");
-            ops.ShowFiles();
-            Console.WriteLine("Enter your filename in which u want to perform operation");
-            string filename = Console.ReadLine();
+            
             Console.WriteLine("Enter your choice ! ");
             Console.WriteLine("To add contact                             : please press 1");
             Console.WriteLine("To edit contact                            : please press 2");
@@ -207,6 +220,8 @@ namespace addressBookProblem
                 {
                     EditMenu();
                     EditContactList(contactList[index]);
+                    ops.WriteText(filename, contactList);
+                    ViewContact(filename);
                     nLog.LogDebug("Debug successful: EditContact()");
                 }
                 else
@@ -329,11 +344,16 @@ namespace addressBookProblem
             bool flag = true;
             while (flag)
             {
+
+                Console.WriteLine("Showing list of files");
+                ops.ShowFiles();
+                Console.WriteLine("Enter your filename in which u want to perform operation");
+                string filename = Console.ReadLine();
                 DisplayingMenu();
                 try
                 {
+                   
                     var choice = Convert.ToInt32(Console.ReadLine());
-                    string filename;
                     switch (choice)
                     {
                         case 1:
@@ -454,6 +474,8 @@ namespace addressBookProblem
             Console.WriteLine("To view by city  : please press 1 \nTo view by state : please press 2 ");
             try
             {
+               // cityList = ops.ReadFromTextToDictionary(cityFile);
+                //stateList = ops.ReadFromTextToDictionary(stateFile);
                 int option = Convert.ToInt32(Console.ReadLine());
                 switch (option)
                 {
