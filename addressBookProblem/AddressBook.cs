@@ -38,16 +38,6 @@ namespace addressBookProblem
         //Creating a dictionary to store the states
         Dictionary<string, string> stateList = new Dictionary<string, string>();
 
-
-        public void SortByNameUsingCsv(string filename)
-        {
-            contactList = ops.ReadCsv(filename);
-            var result = contactList.OrderBy(x => x.firstName);
-            foreach (var sortPerson in result)
-            {
-                Console.WriteLine(sortPerson.ToString());
-            }
-        }
         /// <summary>
         /// Initializes a new instance of the <see cref="AddressBook"/> class.
         /// </summary>
@@ -69,13 +59,8 @@ namespace addressBookProblem
                 contactList.ForEach(Console.WriteLine);
                 Console.WriteLine("Contact Added Successfully!!!!!");
                 nLog.LogDebug("Debug successful: AddContact()");
-                //cityList = ops.ReadFromTextToDictionary(cityFile);
-                //stateList = ops.ReadFromTextToDictionary(stateFile);
                 cityList.Add(firstName, city);
                 stateList.Add(firstName, state);
-               
-                //ops.WriteDictionaryToText(cityFile, cityList);
-                //ops.WriteDictionaryToText(stateFile, stateList);
             }
             else
             {
@@ -475,8 +460,6 @@ namespace addressBookProblem
             Console.WriteLine("To view by city  : please press 1 \nTo view by state : please press 2 ");
             try
             {
-               // cityList = ops.ReadFromTextToDictionary(cityFile);
-                //stateList = ops.ReadFromTextToDictionary(stateFile);
                 int option = Convert.ToInt32(Console.ReadLine());
                 switch (option)
                 {

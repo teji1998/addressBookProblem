@@ -85,27 +85,7 @@ namespace addressBookProblem
             }
         }
 
-       /* public void WriteDictionaryToText(string filename, Dictionary<string, string> dictionary)
-        {
-            string path = "C:\\Users\\PRITHVIL5\\source\\repos\\addressBookProblem\\addressBookProblem\\" + filename;
-            using (StreamWriter file = new StreamWriter(path))
-                foreach (var entry in dictionary)
-                    file.WriteLine("{0},{1}", entry.Key, entry.Value);
-        }*/
-
-        /// <summary>
-        /// Reads from text to dictionary.
-        /// </summary>
-        /// <param name="filename">The filename.</param>
-        /// <returns></returns>
-       /* public Dictionary<string, string> ReadFromTextToDictionary(string filename)
-        {
-            string path = "C:\\Users\\PRITHVIL5\\source\\repos\\addressBookProblem\\addressBookProblem\\" + filename;
-            
-            var dictionary = File.ReadLines(path).Select(line => line.Split(',')).
-                            ToDictionary(split => split[0], split => split[1]);
-            return dictionary;
-        }*/
+       
 
         /// <summary>
         /// Writes the CSV.
@@ -147,53 +127,5 @@ namespace addressBookProblem
 
 
     }
-
-    /*/// <summary>
-    /// Reads from stream reader.
-    /// </summary>
-    public static void ReadFromStreamReader()
-    {
-        string path = @"C:\\Users\\PRITHVIL5\\source\\repos\\addressBookProblem\\addressBookProblem\\sample.txt";
-        if (File.Exists(path))
-        {
-            using (StreamReader sr = File.OpenText(path))
-            {
-                String fileData = "";
-                while ((fileData = sr.ReadLine()) != null)
-                    Console.WriteLine((fileData));
-            }
-            Console.ReadKey();
-        }
-        else
-        {
-            Console.WriteLine("No file");
-        }
-    }
-
-    /// <summary>
-    /// Writes the using stream writer.
-    /// </summary>
-    /// <param name="data">The data.</param>
-    public static void WriteUsingStreamWriter(List<string> data)
-    {
-        string path = @"C:\\Users\\PRITHVIL5\\source\\repos\\addressBookProblem\\addressBookProblem\\sample.txt";
-        if (File.Exists(path))
-        {
-            using (StreamWriter streamWriter = File.AppendText(path))
-            {
-                foreach (string contact in data)
-                {
-                    streamWriter.WriteLine(contact);
-                }
-                streamWriter.Close();
-            }
-            Console.ReadKey();
-        }
-        else
-        {
-            Console.WriteLine("No file");
-        }
-    }*/
-
 }
 
