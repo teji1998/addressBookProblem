@@ -29,9 +29,6 @@ namespace addressBookProblem
         // Creating a list to store the contacts 
         List<ContactDetails> contactList;
 
-        //Creating a dictionary to store the addressbooks
-       // Dictionary<String, List<ContactDetails>> sortedAddressBook = new Dictionary<String, List<ContactDetails>>();
-
         //Creating a dictionary to store the cities
         Dictionary<string, string> cityList = new Dictionary<string, string>();
 
@@ -227,7 +224,6 @@ namespace addressBookProblem
             Console.WriteLine("Enter your choice");
             try
             {
-                
                 var choice = Convert.ToInt32(Console.ReadLine());
                 switch (choice)
                 {
@@ -276,11 +272,7 @@ namespace addressBookProblem
                         nLog.LogError("Invalid choice");
                         nLog.LogWarn("The input should be an integer and valid");
                         break;
-                  
-
                 }
-                
-
                 Console.WriteLine(contact);
             }
             catch (System.FormatException exception)
@@ -332,9 +324,7 @@ namespace addressBookProblem
             Console.WriteLine("Enter your filename in which u want to perform operation");
             string filename = Console.ReadLine();
             while (flag)
-            {
-
-               
+            {     
                 DisplayingMenu();
                 try
                 {

@@ -41,12 +41,10 @@ namespace addressBookProblem
             for (int num = 0; num < addressbook.Count; num++)
             {
                 ContactDetails index = addressbook[num];
-                string[] secondLine = { index.firstName, index.lastName,index.address, index.city, index.state, index.zip, index.phoneNumber,index.emailId };
+                string[] secondLine = { index.firstName, index.lastName, index.address, index.city, index.state, index.zip, index.phoneNumber, index.emailId };
                 string lineTwo = string.Join(",", secondLine);
                 writer.WriteLine(lineTwo);
-
-            }
-            
+            }           
             writer.Close();
         }
 
@@ -56,6 +54,7 @@ namespace addressBookProblem
             string json = JsonConvert.SerializeObject(person.ToArray());
             File.WriteAllText(path, json);
         }
+
         public List<ContactDetails> ReadFromJson(string filename)
         {
             string path = "C:\\Users\\PRITHVIL5\\source\\repos\\addressBookProblem\\addressBookProblem\\" + filename;
@@ -63,7 +62,6 @@ namespace addressBookProblem
             List<ContactDetails> person = JsonConvert.DeserializeObject<List<ContactDetails>>(jsonFile);
             return person;
         }
-
 
         public void ShowFiles()
         {
@@ -85,8 +83,6 @@ namespace addressBookProblem
             }
         }
 
-       
-
         /// <summary>
         /// Writes the CSV.
         /// </summary>
@@ -107,7 +103,6 @@ namespace addressBookProblem
                 writer.Flush();
                 writer.Close();
             }
-
         }
 
         /// <summary>
@@ -124,8 +119,6 @@ namespace addressBookProblem
             person = csvReader.GetRecords<ContactDetails>().ToList();
             return person;
         }
-
-
     }
 }
 
