@@ -1,12 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "1OU1G3DfTzTGm2SOzkk2tSme+qsxX8D/38Y0cona+7wH6VzHj9WhJ44k7xssl4UzbTnD/nuZ5L5hwiDdNGn3Wg==",
+  "dgSpecHash": "1xi6o0nTFCU+TIgh8TiVHrNm8ckpO2pwGsvRTGFROac4EeiSzunVg3MGq28zV09vIxailVJ4nB2oyiUFqWfZJQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\PRITHVIL5\\source\\repos\\addressBookProblem\\addressBookProblem\\addressBookProblem.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\PRITHVIL5\\.nuget\\packages\\csvhelper\\18.0.0\\csvhelper.18.0.0.nupkg.sha512",
     "C:\\Users\\PRITHVIL5\\.nuget\\packages\\json.net\\1.0.23\\json.net.1.0.23.nupkg.sha512",
     "C:\\Users\\PRITHVIL5\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
+    "C:\\Users\\PRITHVIL5\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512",
     "C:\\Users\\PRITHVIL5\\.nuget\\packages\\nlog\\4.7.5\\nlog.4.7.5.nupkg.sha512"
   ],
   "logs": []

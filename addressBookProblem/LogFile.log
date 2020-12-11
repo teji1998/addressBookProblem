@@ -126,3 +126,4 @@
 2020-12-11 17:17:50.5451|DEBUG|addressBookProblem.NLog|Debug successful: AddContact()
 2020-12-11 17:18:14.3436|DEBUG|addressBookProblem.NLog|Debug successful: ViewContact()
 2020-12-11 17:18:14.3436|DEBUG|addressBookProblem.NLog|Debug successful: EditContact()
+2020-12-11 17:51:01.7221|DEBUG|addressBookProblem.NLog|Debug successful: AddContact()

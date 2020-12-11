@@ -1,4 +1,5 @@
 ﻿using CsvHelper;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -49,19 +50,36 @@ namespace addressBookProblem
             writer.Close();
         }
 
-        
+        public void WriteToJson(string filename, List<ContactDetails> person)
+        {
+            string path = "C:\\Users\\PRITHVIL5\\source\\repos\\addressBookProblem\\addressBookProblem\\" + filename;
+            string json = JsonConvert.SerializeObject(person.ToArray());
+            File.WriteAllText(path, json);
+        }
+        public List<ContactDetails> ReadFromJson(string filename)
+        {
+            string path = "C:\\Users\\PRITHVIL5\\source\\repos\\addressBookProblem\\addressBookProblem\\" + filename;
+            string jsonFile = File.ReadAllText(path);
+            List<ContactDetails> person = JsonConvert.DeserializeObject<List<ContactDetails>>(jsonFile);
+            return person;
+        }
 
-        
+
         public void ShowFiles()
         {
             string path = "C:\\Users\\PRITHVIL5\\source\\repos\\addressBookProblem\\addressBookProblem\\";
             string[] fileArray = Directory.GetFiles(path, "*.txt");
-            string[] fileArrays = Directory.GetFiles(path, "*.csv");
+            string[] arrayCSV = Directory.GetFiles(path, "*.csv");
+            string[] arrayJson = Directory.GetFiles(path, "*.json");
             foreach (string file in fileArray)
             {
                 Console.WriteLine(Path.GetFileName(file));
             }
-            foreach (string file in fileArrays)
+            foreach (string file in arrayCSV)
+            {
+                Console.WriteLine(Path.GetFileName(file));
+            }
+            foreach (string file in arrayJson)
             {
                 Console.WriteLine(Path.GetFileName(file));
             }
