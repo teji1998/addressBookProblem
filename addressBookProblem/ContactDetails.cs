@@ -76,8 +76,14 @@ namespace addressBookProblem
             this.phoneNumber = phoneNumber;
             this.emailId = emailId;
         }
-        
-       
+
+        public ContactDetails(string firstname, string city, string state)
+        {
+            this.firstName = firstName;
+            this.city = city;
+            this.state = state;
+        }
+
 
         /// <summary>
         /// Converts to string.
