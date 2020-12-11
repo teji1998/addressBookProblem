@@ -1,3 +1,2 @@
-firstName,lastName,address,city,state,zip,phoneNumber,emailId
-Tejaswini,Kulkarni,hamming,mum,maha,9898989898,784567,dhdj
-lee,minho,jdjd,goa,mdjdj,6767676767,989898,cdcb@df.com
+Firstname,Lastname,Address,City,State,Zip,Mobilenumber,EmailId
+Teji,Kulk,bkdhh,mum,maha,9878766655,787878,uhuhh@dhhd.com

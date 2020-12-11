@@ -34,13 +34,13 @@ namespace addressBookProblem
         {
             string path = "C:\\Users\\PRITHVIL5\\source\\repos\\addressBookProblem\\addressBookProblem\\" +filename;
             StreamWriter writer = new StreamWriter(path);
-            string[] firstLine = { "Firstname", "Lastname", "address", "city", "state", "zip", "mobilenumber" };
+            string[] firstLine = { "Firstname", "Lastname", "Address", "City", "State", "Zip", "Mobilenumber","EmailId" };
             string lineOne = string.Join(",", firstLine);
             writer.WriteLine(lineOne);
             for (int num = 0; num < addressbook.Count; num++)
             {
                 ContactDetails index = addressbook[num];
-                string[] secondLine = { index.firstName, index.lastName, index.city, index.state, index.zip, index.phoneNumber };
+                string[] secondLine = { index.firstName, index.lastName,index.address, index.city, index.state, index.zip, index.phoneNumber,index.emailId };
                 string lineTwo = string.Join(",", secondLine);
                 writer.WriteLine(lineTwo);
 

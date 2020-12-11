@@ -342,13 +342,14 @@ namespace addressBookProblem
         public void AddressBookMenu()
         {
             bool flag = true;
+            Console.WriteLine("Showing list of files");
+            ops.ShowFiles();
+            Console.WriteLine("Enter your filename in which u want to perform operation");
+            string filename = Console.ReadLine();
             while (flag)
             {
 
-                Console.WriteLine("Showing list of files");
-                ops.ShowFiles();
-                Console.WriteLine("Enter your filename in which u want to perform operation");
-                string filename = Console.ReadLine();
+               
                 DisplayingMenu();
                 try
                 {
