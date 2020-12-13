@@ -123,3 +123,15 @@
 2020-12-11 17:01:30.2832|ERROR|addressBookProblem.NLog|First name is not existing
 2020-12-11 17:01:30.2953|WARN|addressBookProblem.NLog|First name should be correct
 2020-12-11 17:08:51.6075|DEBUG|addressBookProblem.NLog|Debug successful: AddContact()
+2020-12-11 17:17:50.5451|DEBUG|addressBookProblem.NLog|Debug successful: AddContact()
+2020-12-11 17:18:14.3436|DEBUG|addressBookProblem.NLog|Debug successful: ViewContact()
+2020-12-11 17:18:14.3436|DEBUG|addressBookProblem.NLog|Debug successful: EditContact()
+2020-12-11 17:51:01.7221|DEBUG|addressBookProblem.NLog|Debug successful: AddContact()
+2020-12-12 10:48:19.0372|DEBUG|addressBookProblem.NLog|Debug successful: AddContact()
+2020-12-12 10:49:46.6293|ERROR|addressBookProblem.NLog|First name is not existing
+2020-12-12 10:49:46.7956|WARN|addressBookProblem.NLog|First name should be correct
+2020-12-12 10:50:02.1410|DEBUG|addressBookProblem.NLog|Debug successful: ViewContact()
+2020-12-12 10:50:03.6197|DEBUG|addressBookProblem.NLog|Debug successful: EditContact()
+2020-12-12 10:55:29.0597|DEBUG|addressBookProblem.NLog|Debug successful: AddContact()
+2020-12-12 10:59:58.3096|DEBUG|addressBookProblem.NLog|Debug successful: AddContact()
+2020-12-12 12:51:42.7632|DEBUG|addressBookProblem.NLog|Debug successful: AddContact()

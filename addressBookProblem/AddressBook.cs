@@ -72,8 +72,9 @@ namespace addressBookProblem
         /// </summary>
         public void AddContact(string filename)
         {
-            contactList = ops.ReadTxt(filename);
-            Console.WriteLine(contactList.Count);
+            //contactList = ops.ReadTxt(filename);
+            
+            //  Console.WriteLine(contactList.Count);
             option = true;
             while (option)
             {
@@ -102,7 +103,7 @@ namespace addressBookProblem
                        Console.WriteLine("Enter the email");
                        emailId = Console.ReadLine();
                        ValidatingContact(firstName, lastName, phoneNumber, zip);
-                       ops.writeCsv(filename, contactList);
+                       ops.WriteToJson(filename, contactList);
                        Console.WriteLine("\nIf you want to add more people in the addressbook press 1");
                        int choice = Convert.ToInt32(Console.ReadLine());
                        if (choice == 1)
